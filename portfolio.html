@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMAB | Portfolio — Field Evidence</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="data-scan"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <button id="toTop" aria-label="Back to top">↑</button>
+    <canvas id="particles"></canvas>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+
+    <nav>
+        <a href="index.html" class="logo">CMAB</a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#redteam">Red Team</a></li>
+            <li><a href="index.html#results">Results</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero page-hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">PORTFOLIO · FIELD EVIDENCE</div>
+            <h1>
+                <span class="line1">Claims Are Cheap.</span>
+                <span class="line2">Here's The Work.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Anyone can list "ransomware intelligence" on a page. This is what it looks like in
+                practice — live operations, on the record, with the receipts.
+            </p>
+        </div>
+    </section>
+
+    <section id="evidence" class="evidence-section">
+        <div class="evidence-wrap">
+            <!-- FLAGSHIP CASE: BlackLock -->
+            <div class="case-file reveal-scale">
+                <div class="case-bar">
+                    <span class="dot r"></span>
+                    <span class="dot y"></span>
+                    <span class="dot g"></span>
+                    <span class="title">cmab@secops: ~/operations/blacklock.case</span>
+                    <span class="status">● Neutralized</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-head">
+                        <div>
+                            <div class="case-classification">// RaaS Infrastructure Compromise · Resecurity HUNTER</div>
+                            <h3>We Broke Into the Ransomware Crew <span class="hl">Before They Could Break You.</span></h3>
+                        </div>
+                        <div class="case-aliases stagger">
+                            <span class="lbl">Known Aliases</span>
+                            <span class="alias">BlackLock</span>
+                            <span class="alias">El Dorado</span>
+                            <span class="alias">Eldorado</span>
+                            <span class="alias">Mamona</span>
+                        </div>
+                    </div>
+
+                    <p class="case-narr">Most threat intelligence counts victims after the damage is done. We did the opposite. As part of the <strong>Resecurity HUNTER</strong> effort against BlackLock — a ransomware-as-a-service operation on track to become the most prolific of 2025, having grown its leak volume by <strong>1,425% in a single quarter</strong> — the team identified a Local File Include flaw in the group's TOR data-leak site and turned it inward.</p>
+
+                    <p class="case-narr">That foothold exposed their server configuration, credentials, and full command history from inside their own infrastructure. Their fatal mistake was mundane: <strong>reused passwords, copy-pasted straight into the shell, valid across multiple accounts.</strong> Operators who could ransom a government couldn't manage their own OPSEC.</p>
+
+                    <div class="case-pull">"Defense that only counts victims is already losing. The work that breaks these groups is offensive — get inside the adversary's process and turn it against them before the payload lands."</div>
+
+                    <p class="case-narr">Access changed the mission from watching to intercepting. The team pulled over <strong>7 TB of stolen data</strong> and warned victims before their information ever went public — reaching the <strong>Canadian Centre for Cyber Security 13 days</strong> ahead of one planned leak, and <strong>CERT-FR/ANSSI two days</strong> ahead of a European legal provider's client data going live. By March, BlackLock and Mamona were offline and the operator had vanished.</p>
+
+                    <div class="case-metrics stagger">
+                        <div class="case-metric"><div class="n">7&nbsp;TB</div><div class="l">Stolen data recovered from actor infrastructure</div></div>
+                        <div class="case-metric cyan"><div class="n">13&nbsp;days</div><div class="l">Advance warning to national CERT before publication</div></div>
+                        <div class="case-metric"><div class="n">1,425%</div><div class="l">Quarterly leak growth — halted</div></div>
+                        <div class="case-metric cyan"><div class="n">3&nbsp;brands</div><div class="l">Linked aliases collapsed: BlackLock · El Dorado · Mamona</div></div>
+                    </div>
+
+                    <div class="case-chain-label">// Operation Timeline</div>
+                    <ul class="case-chain stagger">
+                        <li>
+                            <div class="step-t">Vulnerability Discovery</div>
+                            <div class="step-d">LFI flaw identified in BlackLock's TOR-hosted data-leak site during the winter holiday window.</div>
+                        </li>
+                        <li>
+                            <div class="step-t">Infrastructure Compromise</div>
+                            <div class="step-d">Server-side config, credentials, and MEGA exfil accounts recovered; clearnet IPs behind the hidden service exposed.</div>
+                        </li>
+                        <li>
+                            <div class="step-t">Intelligence Collection</div>
+                            <div class="step-d">Command history and victim publication schedule captured — 7 TB of compromised data catalogued and attributed.</div>
+                        </li>
+                        <li>
+                            <div class="step-t">Victim Interdiction</div>
+                            <div class="step-d">Undisclosed victims alerted through national authorities days before their data was due to be leaked.</div>
+                        </li>
+                        <li>
+                            <div class="step-t">Disruption</div>
+                            <div class="step-d">OPSEC failures exposed; affiliate trust collapsed; BlackLock and Mamona taken offline, operator gone dark.</div>
+                        </li>
+                    </ul>
+
+                    <div class="case-foot">
+                        <span class="case-role-badge">Role: Resecurity — Red Team / CTI</span>
+                        <span class="src">Published operation · <a href="https://www.resecurity.com/blog/article/blacklock-ransomware-a-late-holiday-gift-with-intrusion-into-the-threat-actors-infrastructure" target="_blank" rel="noopener">Resecurity research writeup ↗</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECONDARY EVIDENCE CARDS -->
+            <div class="evidence-strip stagger">
+                <div class="ev-card">
+                    <div class="ev-tag">// Threat Landscape · Commentary</div>
+                    <h4>Reading the TfL Breach</h4>
+                    <p>When two operators cost Transport for London <strong>£29M and 140+ systems</strong>, the lesson wasn't sophistication — it was social engineering and a helpdesk that trusted a phone call. I track exactly this tradecraft: the human layer falls first, long before any zero-day.</p>
+                </div>
+                <div class="ev-card">
+                    <div class="ev-tag">// Attribution · Method</div>
+                    <h4>Traces Survive OPSEC</h4>
+                    <p>The BlackLock operator rebranded across three names to shake investigators. It didn't work — <strong>reused infrastructure and credentials</strong> tied the aliases together. Attribution that holds up isn't a hunch; it's the pattern an adversary can't fully erase.</p>
+                </div>
+                <div class="ev-card">
+                    <div class="ev-tag">// Proactive Defense · Doctrine</div>
+                    <h4>Warn Before the Leak</h4>
+                    <p>The measure of intelligence isn't a report filed after a breach — it's a victim notified <strong>before</strong> theirs. Getting inside the adversary's publication pipeline is what converts monitoring into prevention. That's the standard I bring to your program.</p>
+                </div>
+                <div class="ev-card">
+                    <div class="ev-tag">// How This Page Works</div>
+                    <h4>More Case Files, As They Publish</h4>
+                    <p>Every entry here is a <strong>real, published operation</strong> — not a hypothetical. As new engagements clear disclosure and legal review, they get added here with the same standard: the narrative, the evidence, and the source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="cta-box fade-in">
+            <div class="section-label">// LET'S TALK</div>
+            <h2>Want your infrastructure to end up on the right side of a case file?</h2>
+            <p>
+                One fifteen-minute scoping call tells you which of your assets an adversary would reach
+                first, whether your AI agents can be turned against you, and what it takes to close the
+                gap. No cost. No obligation.
+            </p>
+            <div class="hero-cta">
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://www.linkedin.com/in/saqib-semab-523411242?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="btn btn-secondary" target="_blank" rel="noopener">Message on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CMAB — Red Team Operations · Classical &amp; Agentic AI Adversary Emulation. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>
