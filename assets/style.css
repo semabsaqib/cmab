@@ -1255,20 +1255,35 @@ section {
 .footer-col span.footer-static { color: var(--text-muted); }
 
 .footer-wordmark {
+    overflow: hidden;
+    width: 100%;
+    padding: 0.5rem 0 0;
+}
+.footer-wordmark-track {
+    display: flex;
+    width: max-content;
+    animation: footerMarquee 24s linear infinite;
+}
+.footer-wordmark-track span {
+    display: block;
     font-family: var(--display);
     font-weight: 800;
     line-height: 0.85;
     letter-spacing: -2px;
     font-size: clamp(3.2rem, 15vw, 11rem);
-    text-align: center;
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     white-space: nowrap;
-    padding: 0.5rem 0 0;
+    padding-right: clamp(2rem, 6vw, 4rem);
     user-select: none;
 }
+@keyframes footerMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.footer-wordmark:hover .footer-wordmark-track { animation-play-state: paused; }
 
 .footer-bottom {
     text-align: center;
@@ -2100,6 +2115,8 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
     }
     .cyber-grid { animation: none !important; }
     .nav-links li { opacity: 1 !important; transform: none !important; animation: none !important; }
+    .footer-wordmark-track { animation: none !important; transform: none !important; }
+    .footer-wordmark-track span:nth-child(n+2) { display: none !important; }
     #cursorGlow, .btn-ripple, .data-scan, .film-grain, .cursor-tag { display: none !important; }
     .page-loader { display: none !important; }
     .section-header h2 .rw, .flagship h2 .rw {
