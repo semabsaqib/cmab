@@ -1357,6 +1357,31 @@ section {
     .page-links-strip { grid-template-columns: 1fr; }
 }
 
+/* Identity / credentials strip (about.html) */
+.credentials-strip {
+    max-width: 900px;
+    margin: 2.5rem auto 0;
+    padding: 0 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.credentials-strip .cred-role {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+.credentials-strip .cred-role strong { color: var(--text); }
+.credentials-strip .cred-role a { color: var(--accent3); text-decoration: none; }
+.credentials-strip .cred-role a:hover { text-decoration: underline; }
+.cred-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: center;
+}
+
 /* ============ NAV TOGGLE — "MENU" label + square, desktop and mobile alike ============ */
 .nav-toggle-wrap {
     display: flex;

@@ -85,6 +85,43 @@
 
     <section id="evidence" class="evidence-section">
         <div class="evidence-wrap">
+            <!-- FLAGSHIP CASE: FortiBleed -->
+            <div class="case-file reveal-scale">
+                <div class="case-bar">
+                    <span class="dot r"></span>
+                    <span class="dot y"></span>
+                    <span class="dot g"></span>
+                    <span class="title">cmab@secops: ~/operations/fortibleed.case</span>
+                    <span class="status">● Documented</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-head">
+                        <div>
+                            <div class="case-classification">// Global Credential-Harvesting Campaign · SOCRadar Labs Research</div>
+                            <h3>The Largest Credential-Harvesting Campaign <span class="hl">Ever Documented Against Firewalls.</span></h3>
+                        </div>
+                    </div>
+
+                    <p class="case-narr">I discovered and documented the largest credential-harvesting operation ever found targeting network perimeter infrastructure. A custom adversary tool — <strong>written in Russian, compiled in Go</strong> — had silently compromised over <strong>430,000 firewalls across 194 countries</strong>, passively intercepting authentication traffic across 24 different protocols without tripping a single alert.</p>
+
+                    <p class="case-narr">The operation had harvested <strong>110 million credentials</strong> — NTLM hashes, Kerberos tickets, cleartext passwords — from devices that were never meant to be a listening post. The disclosure triggered a <strong>CISA emergency alert</strong> and confirmed a breach at a NATO-aligned defense contractor. I mapped the full attack chain, from initial access through lateral movement to data exfiltration, so defenders had something they could actually act on.</p>
+
+                    <div class="case-pull">"A firewall is supposed to be the thing that watches the door. This one had been quietly recording everyone who walked through it — for who knows how long."</div>
+
+                    <div class="case-metrics stagger">
+                        <div class="case-metric"><div class="n">430K+</div><div class="l">Firewalls silently compromised</div></div>
+                        <div class="case-metric cyan"><div class="n">110M+</div><div class="l">Credentials harvested</div></div>
+                        <div class="case-metric"><div class="n">194</div><div class="l">Countries affected</div></div>
+                        <div class="case-metric cyan"><div class="n">659</div><div class="l">Harvest cycles observed</div></div>
+                    </div>
+
+                    <div class="case-foot">
+                        <span class="case-role-badge">Role: Independent Research · CTI</span>
+                        <span class="src">CVE-2026-24858 · Attributed to a Russian-speaking adversary</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- FLAGSHIP CASE: BlackLock -->
             <div class="case-file reveal-scale">
                 <div class="case-bar">
@@ -176,6 +213,21 @@
                     <div class="ev-tag">// How This Page Works</div>
                     <h4>More Case Files, As They Publish</h4>
                     <p>Every entry here is a <strong>real, published operation</strong> — not a hypothetical. As new engagements clear disclosure and legal review, they get added here with the same standard: the narrative, the evidence, and the source.</p>
+                </div>
+                <div class="ev-card" data-cursor="Read">
+                    <div class="ev-tag">// UAE Financial Sector · The Gentlemen Ransomware</div>
+                    <h4>The Dhow International Holding Breach</h4>
+                    <p>Investigated a sophisticated RaaS group's breach of a UAE financial institution — a <strong>Go-based locker</strong> targeting Windows, Linux, NAS, and ESXi, run through SystemBC proxy infrastructure for covert C2. Every TTP mapped to MITRE ATT&amp;CK; victim infrastructure verified through WHOIS intelligence.</p>
+                </div>
+                <div class="ev-card" data-cursor="Read">
+                    <div class="ev-tag">// South Africa · Political Data Leak</div>
+                    <h4>The Black X / ANC Leak Investigation</h4>
+                    <p>Full investigation of the Black X hacker group's claimed leak of ANC data — <strong>2.3 million records</strong> spanning phone IDs, emails, and physical addresses. Findings cross-verified through MyBroadband, Daily Maverick, BizNews, and DeXpose.io.</p>
+                </div>
+                <div class="ev-card" data-cursor="Read">
+                    <div class="ev-tag">// Bug Bounty · Vulnerability Research</div>
+                    <h4>GitLab Vulnerability Assessment</h4>
+                    <p>Disclosed under AMRSEC-BB-2026-001 — a documented finding against GitLab with a working proof-of-concept and remediation guidance, the kind of report that gets triaged fast because it doesn't leave the reader guessing.</p>
                 </div>
             </div>
         </div>
