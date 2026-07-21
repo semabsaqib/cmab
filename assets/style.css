@@ -10,7 +10,7 @@
     --accent3: #00d4ff;
     --success: #00ff88;
     --mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-    --font-signature: 'Anton', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+    --font-signature: 'Playfair Display', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --gothic-bone: #c8bda3;
     --gothic-blood: #9d1b2f;
     --gothic-wine: #4a0810;
@@ -94,15 +94,16 @@ nav.scrolled {
     background: rgba(5,5,8,0.95);
 }
 
-/* The name, centered in the nav — tall/condensed poster lettering, grunge-distressed */
+/* The name, centered in the nav — a single row, no wrapper rows */
 .logo {
     position: absolute;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-signature);
-    font-weight: 400;
-    font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-    letter-spacing: 1px;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(1.65rem, 3.1vw, 2.35rem);
+    letter-spacing: 0.5px;
     text-decoration: none;
     white-space: nowrap;
     background: linear-gradient(120deg, var(--gothic-bone) 0%, var(--gothic-blood) 55%, var(--gothic-wine) 100%);
@@ -112,7 +113,6 @@ nav.scrolled {
     background-clip: text;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.85);
     animation: gradientShift 6s linear infinite;
-    filter: url(#grungeFilter);
 }
 .logo::before, .logo::after {
     content: '';
