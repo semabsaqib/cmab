@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMAB | About — Red Team Operator</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="data-scan"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <button id="toTop" aria-label="Back to top">↑</button>
+    <canvas id="particles"></canvas>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+
+    <nav>
+        <a href="index.html" class="logo">CMAB</a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#redteam">Red Team</a></li>
+            <li><a href="index.html#results">Results</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero page-hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">ABOUT CMAB</div>
+            <h1>
+                <span class="line1">Not A Vendor Pitch.</span>
+                <span class="line2">An Operator's Brief.</span>
+            </h1>
+            <p class="hero-subtitle">
+                No stock photo, no "synergy." Just the thinking behind how I test — and why most testing
+                doesn't tell you what you actually need to know.
+            </p>
+        </div>
+    </section>
+
+    <section id="brief" class="flagship-section">
+        <div class="flagship fade-in">
+            <div class="kicker"><span class="blip">▍</span> THE OPERATOR'S BRIEF</div>
+            <h2>Your scanner finds what it was told to look for. <span class="hl">An adversary finds what you forgot.</span></h2>
+            <div class="flagship-body">
+                <p class="lead">Most security testing answers the wrong question. It asks "does this tool have a known bug?" The question that ends companies is different: "if a motivated attacker wanted in, could they get in — and would you ever know?"</p>
+
+                <p>Those are not the same test. A vulnerability scan is a checklist run against a database of yesterday's problems. Adversary emulation is a person — or, increasingly, an autonomous agent — with an objective, working through your people, your process, and your technology the way a real intruder would. One produces a PDF. The other produces the truth.</p>
+
+                <p>I run the second kind. Every engagement starts with an objective, not a tool: reach the domain controller, exfiltrate the crown-jewel dataset, prove the wire-transfer path. Then I get there the way an adversary would — <strong>initial access, privilege escalation, lateral movement, command-and-control, exfiltration</strong> — and every technique is mapped to MITRE ATT&amp;CK <strong>so that</strong> your blue team receives a repeatable, auditable attack narrative they can re-run and defend against, not a glossy report they file and forget.</p>
+
+                <div class="flagship-pull">"A red team that finds ten holes and hands over a vague PDF has wasted everyone's time."</div>
+
+                <p>There is a second front now, and most testers are not on it. Attackers have discovered that the fastest way past a hardened network is the AI agent you deployed to be helpful. In 2025, an autonomous system reached the top of HackerOne's US leaderboard — the first machine to lead a public bug-bounty ranking — after filing close to 1,060 valid vulnerability reports. The same year, 78% of teams reported being burned by a critical false negative from an automated tool. The lesson is not "AI replaces humans." It is that the adversary now fields both, and so must your defense.</p>
+
+                <p>This is where agentic AI red teaming comes in, and where I've built rare depth. When your LLM agent can read a customer email <em>and</em> issue a refund, a hidden instruction in that email is no longer a bad answer — it is a hijacked objective. I test for exactly that: <strong>goal hijacking, tool misuse, prompt injection across every channel the agent ingests, and memory poisoning</strong> — mapped to the OWASP Top 10 for Agentic Applications, MITRE ATLAS, and NIST <strong>so that</strong> you deploy autonomy with a documented safety boundary instead of a hope.</p>
+
+                <p>Here is what I will not do: hand you a scan and call it a red team, pad a report with technique IDs to make it look like intelligence, or leave your defenders with findings they cannot reproduce. What you get instead is an attack narrative, the evidence behind every step, the detections that should have fired, and a prioritized path to close the gaps — validated by retest.</p>
+
+                <p><strong>If your board is asking whether your defenses would hold against a real attacker — human or AI — that is the conversation to have.</strong> The scoping call is free, it takes fifteen minutes, and you will leave it knowing more about your exposure than most quarterly reports tell you.</p>
+
+                <div class="flagship-cta">
+                    <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                    <span class="note">No cost. No obligation. <b>15 minutes.</b></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="cta-box fade-in">
+            <div class="section-label">// LET'S TALK</div>
+            <h2>The attacker isn't waiting for your next audit cycle.</h2>
+            <p>
+                Neither should you. One fifteen-minute scoping call tells you which of your assets an
+                adversary would reach first, whether your AI agents can be turned against you, and what
+                it takes to close the gap. No cost. No obligation. If it isn't worth your time, you'll
+                know inside the first five minutes — and I'll have wasted mine, not yours.
+            </p>
+            <div class="hero-cta">
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://www.linkedin.com/in/saqib-semab-523411242?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="btn btn-secondary" target="_blank" rel="noopener">Message on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CMAB — Red Team Operations · Classical &amp; Agentic AI Adversary Emulation. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>
