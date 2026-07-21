@@ -286,16 +286,6 @@ nav.nav-open .nav-links { opacity: 1; visibility: visible; transform: translateY
     flex-wrap: wrap;
     margin-bottom: 4rem;
 }
-.hero-cta .note {
-    width: 100%;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-.hero-cta .note b { color: var(--accent3); font-weight: 600; }
-.hero-cta .note a { color: var(--accent); text-decoration: none; }
-.hero-cta .note a:hover { text-decoration: underline; }
 
 .btn {
     padding: 1rem 2.5rem;
@@ -867,24 +857,15 @@ section {
 .case-foot .src a { color: var(--accent3); text-decoration: none; }
 .case-foot .src a:hover { text-decoration: underline; }
 .case-role-badge {
-    display: inline-block;
     font-family: var(--mono);
     font-size: 0.68rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    text-decoration: none;
     color: var(--text);
     border: 1px solid rgba(124,58,237,0.4);
     border-radius: 6px;
     padding: 0.35rem 0.8rem;
     background: rgba(124,58,237,0.08);
-    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
-}
-a.case-role-badge:hover {
-    border-color: rgba(124,58,237,0.8);
-    background: rgba(124,58,237,0.18);
-    color: var(--text);
-    transform: translateY(-2px);
 }
 
 /* secondary evidence cards below flagship */
