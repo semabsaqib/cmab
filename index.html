@@ -6,7 +6,7 @@
     <title>CMAB | Red Team Operator — Classical & Agentic AI Adversary Emulation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Pirata+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Pirata+One&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #08070a;
@@ -31,12 +31,19 @@
         html { scroll-behavior: smooth; }
         
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'kern' 1, 'liga' 1;
         }
+
+        h1, h2, h3, h4 { text-wrap: balance; }
+        p, .flagship-body p, .case-narr, .stakes-lead { text-wrap: pretty; }
         
         /* Particle canvas */
         #particles {
@@ -1885,6 +1892,8 @@
         .plan-step h3,
         .ev-card h4,
         .problem-box h3,
+        .skill-card h3,
+        .service-card h3,
         .testimonial-text,
         .logo {
             font-family: var(--font-gothic);
