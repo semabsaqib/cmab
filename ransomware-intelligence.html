@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin America & Global Ransomware Threat Intelligence Report 2021–2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #050505;
+            --bg-dark: #0a0a0a;
+            --bg-surface: #0f0f0f;
+            --bg-card: #131313;
+            --bg-card-hover: #1a1a1a;
+            --pink: #ff2d78;
+            --pink-light: #ff6b9d;
+            --pink-dark: #cc1a5e;
+            --pink-glow: rgba(255, 45, 120, 0.22);
+            --pink-subtle: rgba(255, 45, 120, 0.05);
+            --magenta: #e0135f;
+            --rose: #ff1744;
+            --text-primary: #f0f0f0;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --border: rgba(255, 45, 120, 0.06);
+            --border-bright: rgba(255, 45, 120, 0.2);
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--pink-dark) var(--bg-black);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: var(--pink); color: #fff; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb { background: var(--pink-dark); border-radius: 3px; }
+
+        /* Background */
+        .bg-grid {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,45,120,0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,45,120,0.012) 1px, transparent 1px);
+            background-size: 70px 70px;
+        }
+
+        .glow-orb { position: fixed; border-radius: 50%; filter: blur(200px); pointer-events: none; z-index: 0; }
+        .glow-1 { width: 700px; height: 700px; top: -200px; right: -150px; background: var(--pink); opacity: 0.06; animation: f1 14s ease-in-out infinite; }
+        .glow-2 { width: 500px; height: 500px; bottom: -150px; left: -100px; background: var(--magenta); opacity: 0.04; animation: f2 18s ease-in-out infinite; }
+
+        @keyframes f1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-40px,40px) scale(1.1)} }
+        @keyframes f2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,-30px) scale(1.15)} }
+
+        .site { position: relative; z-index: 1; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 18px 40px; display: flex; align-items: center; justify-content: space-between;
+            background: rgba(5,5,5,0.9); backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav.scrolled { padding: 14px 40px; background: rgba(5,5,5,0.97); }
+        .nav-title-link { text-decoration: none; }
+        .nav-title {
+            font-family: var(--font-display); font-size: 16px; font-weight: 800;
+            color: var(--text-primary); letter-spacing: -0.3px;
+        }
+        .nav-title span { color: var(--pink); }
+        .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+        .nav-links a {
+            font-family: var(--font-body); font-size: 12px; font-weight: 500;
+            color: var(--text-secondary); text-decoration: none;
+            padding: 8px 14px; border: 1px solid transparent; border-radius: 8px;
+            transition: all 0.25s ease; letter-spacing: 0.3px; text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--pink); border-color: var(--border-bright); background: var(--pink-subtle); }
+        .nav-links a.nav-home { color: var(--pink); border-color: var(--border-bright); }
+
+        /* HERO */
+        .hero {
+            padding: 160px 40px 120px; text-align: center; position: relative;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+            color: var(--pink); background: var(--pink-subtle);
+            border: 1px solid var(--border-bright); padding: 8px 22px;
+            border-radius: 100px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px;
+        }
+        .hero-badge-dot { width: 6px; height: 6px; background: var(--pink); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(44px, 6vw, 96px);
+            font-weight: 800; line-height: 1; letter-spacing: -3.5px; margin-bottom: 28px;
+        }
+        .hero h1 .accent { color: var(--pink); text-shadow: 0 0 80px var(--pink-glow); }
+
+        .hero-subtitle {
+            font-family: var(--font-body); font-size: 17px; color: var(--text-secondary);
+            line-height: 1.8; max-width: 700px; margin: 0 auto 20px; font-weight: 400;
+        }
+
+        .hero-meta {
+            display: flex; align-items: center; justify-content: center; gap: 28px;
+            flex-wrap: wrap; margin-top: 32px;
+        }
+        .hero-meta-item {
+            display: flex; align-items: center; gap: 8px;
+            font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);
+        }
+        .hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); }
+
+        /* TABLE OF CONTENTS */
+        .toc-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+        .toc-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 48px;
+        }
+        .toc-card {
+            display: flex; align-items: center; gap: 18px;
+            padding: 24px 28px; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 14px;
+            text-decoration: none; transition: all 0.35s var(--ease);
+        }
+        .toc-card:hover {
+            border-color: var(--border-bright); transform: translateX(6px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .toc-num {
+            width: 44px; height: 44px; background: var(--pink-subtle);
+            border: 1px solid var(--border); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 16px; font-weight: 800;
+            color: var(--pink); flex-shrink: 0;
+        }
+        .toc-info h3 {
+            font-family: var(--font-display); font-size: 15px; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 4px; letter-spacing: -0.2px;
+        }
+        .toc-info p { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; }
+
+        /* SECTIONS */
+        .section { padding: 100px 0; position: relative; }
+        .section + .section { border-top: 1px solid var(--border); }
+
+        .section-header { margin-bottom: 56px; display: flex; align-items: flex-end; justify-content: space-between; }
+        .section-label {
+            font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+            color: var(--pink); text-transform: uppercase; letter-spacing: 3.5px; margin-bottom: 12px; display: block;
+        }
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px);
+            font-weight: 800; letter-spacing: -2px; line-height: 1.08;
+        }
+        .section-title .accent { color: var(--pink); text-shadow: 0 0 40px var(--pink-glow); }
+        .section-line { width: 60px; height: 3px; background: linear-gradient(90deg, var(--pink), var(--magenta)); margin-top: 18px; border-radius: 2px; box-shadow: 0 0 15px var(--pink-glow); }
+
+        /* REPORT CONTENT */
+        .report-content {
+            font-size: 15.5px; color: var(--text-secondary); line-height: 1.95;
+            max-width: 900px;
+        }
+        .report-content p { margin-bottom: 22px; }
+        .report-content strong { color: var(--text-primary); font-weight: 700; }
+
+        .report-content h3 {
+            font-family: var(--font-display); font-size: clamp(28px, 3vw, 42px);
+            font-weight: 800; letter-spacing: -1.5px; color: var(--text-primary);
+            margin: 48px 0 24px; line-height: 1.15;
+        }
+        .report-content h3 .accent { color: var(--pink); }
+
+        .report-content h4 {
+            font-family: var(--font-display); font-size: clamp(20px, 2vw, 28px);
+            font-weight: 700; letter-spacing: -0.8px; color: var(--text-primary);
+            margin: 36px 0 16px;
+        }
+
+        /* KEY METRICS */
+        .metrics-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px; margin: 40px 0 48px;
+        }
+        .metric-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 28px 24px; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover { border-color: var(--border-bright); box-shadow: 0 0 25px rgba(255,45,120,0.06); }
+        .metric-value {
+            font-family: var(--font-display); font-size: 36px; font-weight: 800;
+            color: var(--pink); text-shadow: 0 0 25px var(--pink-glow);
+            line-height: 1; margin-bottom: 8px; letter-spacing: -1px;
+        }
+        .metric-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: var(--pink-subtle); border: 1px solid var(--border-bright);
+            border-radius: 14px; padding: 32px 36px; margin: 36px 0;
+        }
+        .highlight-box p { color: var(--text-primary); font-size: 15px; margin-bottom: 0; }
+        .highlight-box .hl-label {
+            font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+            color: var(--pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: block;
+        }
+
+        /* SEVERITY TAGS */
+        .sev-tag {
+            display: inline-block; font-family: var(--font-mono); font-size: 9px; font-weight: 800;
+            padding: 3px 10px; border-radius: 5px; letter-spacing: 1.5px; margin-right: 6px;
+        }
+        .sev-crit { color: var(--rose); background: rgba(255,23,68,0.1); border: 1px solid rgba(255,23,68,0.25); }
+        .sev-high { color: var(--pink-light); background: var(--pink-subtle); border: 1px solid var(--border-bright); }
+        .sev-med { color: #ffb800; background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.2); }
+        .sev-low { color: #28c840; background: rgba(40,200,64,0.08); border: 1px solid rgba(40,200,64,0.2); }
+
+        /* ASSESSMENT BOX */
+        .assessment-box {
+            background: linear-gradient(135deg, rgba(255,45,120,0.04), rgba(224,19,95,0.04));
+            border: 1px solid var(--border-bright); border-radius: 14px;
+            padding: 36px 40px; margin: 40px 0;
+        }
+        .assessment-box .asm-label {
+            font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+            color: var(--pink); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; display: block;
+        }
+        .assessment-box p { color: var(--text-primary); font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+
+        /* COUNTRY REPORT CARD */
+        .country-report { margin-bottom: 80px; }
+        .country-report:last-child { margin-bottom: 0; }
+
+        .country-header {
+            display: flex; align-items: center; gap: 16px; margin-bottom: 36px;
+            padding-bottom: 24px; border-bottom: 1px solid var(--border);
+        }
+        .country-flag {
+            width: 48px; height: 48px; background: linear-gradient(135deg, var(--pink), var(--magenta));
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 22px; box-shadow: 0 0 20px var(--pink-glow);
+        }
+        .country-name {
+            font-family: var(--font-display); font-size: clamp(28px, 3vw, 42px);
+            font-weight: 800; letter-spacing: -1.5px; color: var(--text-primary);
+        }
+        .country-name span { color: var(--pink); }
+
+        /* THREAT TAGS */
+        .threat-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+        .threat-tag {
+            font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+            color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            transition: all 0.25s ease;
+        }
+        .threat-tag:hover { color: var(--pink); border-color: var(--border-bright); }
+
+        /* EXECUTIVE SUMMARY */
+        .exec-summary {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 40px 44px; margin: 0 0 48px;
+        }
+        .exec-summary h4 {
+            font-family: var(--font-display); font-size: 18px; font-weight: 700;
+            color: var(--pink); margin-bottom: 20px; letter-spacing: -0.3px;
+        }
+        .exec-summary p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.9; margin-bottom: 14px; }
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        /* FOOTER */
+        .report-footer {
+            padding: 60px 0 40px; text-align: center;
+            border-top: 1px solid var(--border); margin-top: 60px;
+        }
+        .report-footer p {
+            font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);
+        }
+        .report-footer .brand { color: var(--pink); font-weight: 700; }
+        .report-footer .back-home {
+            display: inline-block; margin-top: 24px; color: var(--pink);
+            text-decoration: none; font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--border-bright);
+            padding: 10px 20px; border-radius: 100px; transition: all 0.25s ease;
+        }
+        .report-footer .back-home:hover { background: var(--pink-subtle); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            .nav { padding: 14px 24px; }
+            .nav-links { display: none; }
+            .hero { padding: 120px 24px 80px; }
+            .section { padding: 70px 0; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .metrics-grid { grid-template-columns: 1fr 1fr; }
+            .toc-grid { grid-template-columns: 1fr; }
+            .exec-summary { padding: 28px 24px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow-orb glow-1"></div>
+<div class="glow-orb glow-2"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <a href="index.html" class="nav-title-link"><div class="nav-title">RANSOMWARE <span>INTEL</span> 2021–2026</div></a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="nav-home">← CMAB Home</a></li>
+        <li><a href="#contents">Contents</a></li>
+        <li><a href="#brazil">Brazil</a></li>
+        <li><a href="#colombia">Colombia</a></li>
+        <li><a href="#india">India</a></li>
+        <li><a href="#mexico">Mexico</a></li>
+        <li><a href="#pakistan">Pakistan</a></li>
+        <li><a href="#peru">Peru</a></li>
+        <li><a href="#venezuela">Venezuela</a></li>
+    </ul>
+</nav>
+
+<div class="site">
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>TLP: WHITE — Open Source Intelligence</div>
+        <h1>Latin America & Global<br><span class="accent">Ransomware Intelligence</span><br>Report 2021–2026</h1>
+        <p class="hero-subtitle">
+            A comprehensive compiled analysis of ransomware threat landscapes across
+            seven nations — Brazil, Colombia, India, Mexico, Pakistan, Peru, and Venezuela —
+            drawing from SOCRadar, ransomware.live, Kaspersky, Intel 471, Check Point,
+            and national cybersecurity agency advisories.
+        </p>
+        <div class="hero-meta">
+            <span class="hero-meta-item"><span class="dot"></span>7 Countries Analyzed</span>
+            <span class="hero-meta-item"><span class="dot"></span>2021–2026 Timeline</span>
+            <span class="hero-meta-item"><span class="dot"></span>8 Source Reports Compiled</span>
+            <span class="hero-meta-item"><span class="dot"></span>June 2026 Edition</span>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TABLE OF CONTENTS
+         ============================================ -->
+    <section class="toc-section" id="contents">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 0;">
+                <span class="section-label">// 00</span>
+                <h2 class="section-title">Table of <span class="accent">Contents</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="toc-grid" style="margin-top: 48px;">
+                <a href="#brazil" class="toc-card">
+                    <div class="toc-num">01</div>
+                    <div class="toc-info"><h3>Brazil</h3><p>53% of LATAM incidents · 460 victims</p></div>
+                </a>
+                <a href="#colombia" class="toc-card">
+                    <div class="toc-num">02</div>
+                    <div class="toc-info"><h3>Colombia</h3><p>IFX supply chain · 128 victims</p></div>
+                </a>
+                <a href="#india" class="toc-card">
+                    <div class="toc-num">03</div>
+                    <div class="toc-info"><h3>India</h3><p>31% global detections · 455 victims</p></div>
+                </a>
+                <a href="#mexico" class="toc-card">
+                    <div class="toc-num">04</div>
+                    <div class="toc-info"><h3>Mexico</h3><p>11th globally · 75 leak-site victims</p></div>
+                </a>
+                <a href="#pakistan" class="toc-card">
+                    <div class="toc-num">05</div>
+                    <div class="toc-info"><h3>Pakistan</h3><p>42K detections · 7 active APT groups</p></div>
+                </a>
+                <a href="#peru" class="toc-card">
+                    <div class="toc-num">06</div>
+                    <div class="toc-info"><h3>Peru</h3><p>#3 LATAM · 69 cumulative victims</p></div>
+                </a>
+                <a href="#venezuela" class="toc-card">
+                    <div class="toc-num">07</div>
+                    <div class="toc-info"><h3>Venezuela</h3><p>State-adjacent ops · 33+ victims</p></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BRAZIL
+         ============================================ -->
+    <section class="section" id="brazil">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 01 — Latin America</span>
+                        <h2 class="section-title">Brazil <span class="accent">Ransomware Landscape</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2021–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇧🇷</div>
+                    <div class="country-name">BRAZIL <span>— The #1 LATAM Target</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Brazil is the dominant ransomware target in Latin America by every measured metric. The country accounts for 53% of all cybersecurity incidents recorded across the region (SOCRadar LATAM 2026) and 46.94% of all ransomware attacks. ransomware.live tracks 460 cumulative Brazilian victims — the highest in Latin America by a substantial margin. In 2025, 132 confirmed leak-site victims were recorded, with February 2025 setting a national record of over 960 ransomware attacks in a single month.</p>
+                    <p>Brazil entered the global top 10 for ransomware victimization for the first time in February 2026, driven by CL0P's Oracle EBS zero-day mass campaign. The threat landscape is uniquely diverse: global RaaS cartels (Qilin, LockBit, Akira, CL0P) deliberately redirecting operations toward Brazil as a consequence of US and EU law enforcement pressure; Chinese state-sponsored APT groups targeting telecom infrastructure; domestic Brazilian cybercrime syndicates with decade-long operational continuity; and supply chain attacks cascading across the country's large, interconnected healthcare and manufacturing ecosystems.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">460</div><div class="metric-label">Cumulative Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">132</div><div class="metric-label">Leak-Site Victims 2025</div></div>
+                    <div class="metric-card"><div class="metric-value">960+</div><div class="metric-label">Attacks Feb 2025 Record</div></div>
+                    <div class="metric-card"><div class="metric-value">53%</div><div class="metric-label">Of All LATAM Incidents</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>Manufacturing alone absorbs 20.56% of attacks (Check Point), and the Qilin-LockBit-DragonForce ransomware cartel alliance formed in September 2025 has specifically concentrated operational resources against the Brazilian market. The CL0P Oracle EBS zero-day campaign (late 2025/early 2026) represented a watershed moment — Brazil's first entry into the global top 10 victim rankings, with exploitation of CVE-2025-61882 across multiple enterprise environments.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>Qilin · LockBit · Akira · CL0P · DragonForce · RansomHouse — with the Qilin-LockBit-DragonForce cartel alliance (formed Sep 2025) specifically concentrating operational resources against Brazilian targets.</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Brazil's ransomware exposure is structurally driven by five converging factors: the largest economy and digital attack surface in Latin America; a manufacturing and food processing sector running legacy OT systems on complex supply chains; an underfunded healthcare sector with federated IT architecture creating inconsistent security postures; the deliberate redirection of global RaaS operations toward Brazil following US/EU law enforcement pressure; and rapidly expanding cloud adoption outpacing security governance maturity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         COLOMBIA
+         ============================================ -->
+    <section class="section" id="colombia">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 02 — Latin America</span>
+                        <h2 class="section-title">Colombia <span class="accent">Ransomware Landscape</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2022–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇨🇴</div>
+                    <div class="country-name">COLOMBIA <span>— Structural Supply Chain Risk</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Colombia has emerged as one of Latin America's most persistently targeted nations for ransomware operations. From the RansomHouse attack on healthcare multinational Keralty in 2022, to the BlackCat/ALPHV breach of energy giant EPM, to the nation-defining IFX Networks supply chain attack of 2023 that paralyzed 50+ government agencies and 762 Latin American organizations simultaneously.</p>
+                    <p>Ransomware.live tracks 128 cumulative Colombian victims. Colombia was the most DDoS-targeted country in Latin America in 2025 (Intel 471). Blind Eagle (TAG-144), a Latin America-based APT cluster active since 2018, continued systematic targeting of Colombian judicial and government institutions through 2025. In April 2026, Qilin claimed the Cooperativa de Hospitales de Antioquia (COHAN). Fintech platform Addi.com was breached by ShinyHunters in May 2026, exposing over 16 million unique records.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">128</div><div class="metric-label">Cumulative Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">762</div><div class="metric-label">Orgs Affected (IFX 2023)</div></div>
+                    <div class="metric-card"><div class="metric-value">5M+</div><div class="metric-label">Patients Disrupted</div></div>
+                    <div class="metric-card"><div class="metric-value">16M+</div><div class="metric-label">PII Records Exposed</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The IFX Networks supply chain attack of 2023 stands as the most significant cyber incident in Latin American history. A single point of failure in IFX's managed services infrastructure cascaded across 762 organizations spanning multiple countries, demonstrating that Colombia's vulnerability is structurally embedded in its centralized IT architecture. The Keralty/RansomHouse incident disrupted healthcare for over 5 million patients. Blind Eagle (TAG-144) represents a persistent nation-state-adjacent threat specifically targeting Colombian sovereignty institutions.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>RansomHouse · BlackCat/ALPHV · Blind Eagle (TAG-144) · Qilin · ShinyHunters — with Blind Eagle representing a nation-state-adjacent APT cluster with sustained targeting of Colombian judicial and government institutions since 2018.</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Colombia's ransomware exposure is structurally embedded in four key factors: centralized, legacy-heavy government IT architecture; a large underfunded healthcare sector; telecommunications infrastructure reliant on a small number of cloud/hosting providers creating critical supply chain concentration risk; and the persistent presence of Blind Eagle — a nation-state-adjacent APT cluster targeting Colombian sovereignty institutions at a level unmatched elsewhere in the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         INDIA
+         ============================================ -->
+    <section class="section" id="india">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 03 — Asia-Pacific</span>
+                        <h2 class="section-title">India <span class="accent">Ransomware Crisis</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2022–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇮🇳</div>
+                    <div class="country-name">INDIA <span>— Structural Proportions</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>India has entered a ransomware crisis of structural proportions. With 455 confirmed cumulative victims tracked by ransomware.live as of June 2026, and 128 confirmed leak-site victims in 2025 alone, India now ranks #1 in the Asia-Pacific region and second globally for ransomware detections, trailing only the United States. Acronis's H2 2025 Cyberthreats Report attributed a staggering 31% of all global ransomware detections to Indian infrastructure.</p>
+                    <p>In January 2026, ransomware velocity against Indian targets surged more than 31% above the prior nine-month average. India topped global charts for lateral movement and mass infection propagation. The primary sectors under siege are Information Technology, BFSI, Manufacturing, and Healthcare — sectors at the core of India's ₹272 lakh crore economy and its $254 billion technology export engine.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">455</div><div class="metric-label">Cumulative Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">128</div><div class="metric-label">Leak-Site Victims 2025</div></div>
+                    <div class="metric-card"><div class="metric-value">31%</div><div class="metric-label">Global Detections</div></div>
+                    <div class="metric-card"><div class="metric-value">#2</div><div class="metric-label">Global Ranking</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The October 2025 operational alliance between LockBit, Qilin, and DragonForce — sharing infrastructure, tooling, and coordinated targeting — elevated India's threat exposure to historically unprecedented levels. India's rapid digital transformation through the Digital India mission and UPI payment ecosystem has created an attack surface expanding faster than security governance can mature. Cross-border hacktivist groups from Indonesia and Bangladesh have conducted ransomware-adjacent campaigns seeking to undermine India's digital sovereignty. Attackers are specifically targeting IT and BFSI sectors that form the backbone of India's $254 billion technology export industry.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>Qilin · Sinobi · TheGentlemen · DragonForce · LockBit 5.0 · CL0P — with the LockBit-Qilin-DragonForce cartel alliance (formed Oct 2025) elevating India's threat exposure to unprecedented levels through shared infrastructure and coordinated targeting.</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>India represents the world's most rapidly escalating ransomware crisis. The convergence of massive digital attack surface expansion, underinvestment in security governance relative to digitalization speed, the world's largest IT services export economy as a high-value target for data theft and supply chain compromise, and the operational consolidation of the three most aggressive RaaS groups against Indian infrastructure creates a threat environment of global significance requiring immediate structural intervention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MEXICO
+         ============================================ -->
+    <section class="section" id="mexico">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 04 — Latin America</span>
+                        <h2 class="section-title">Mexico <span class="accent">Ransomware Landscape</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2025–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇲🇽</div>
+                    <div class="country-name">MEXICO <span>— Structural Shift</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Mexico's ransomware threat environment has entered a critical phase, ascending from 16th place globally in 2024 to 11th in 2025, recording 75 confirmed leak-site victims (Breachsense) against an estimated real-world total of 150–300 incidents. With ransomware.live tracking 248 Mexican victims as of June 2026, Mexico is now firmly the second most targeted nation in Latin America, trailing only Brazil.</p>
+                    <p>LockBit 5.0 breached Sociedad Hipotecaria Federal (SHF), exfiltrating 277 GB of mortgage and financial data; Qilin compromised a second financial institution's electronic transfer channels; and Tengu listed the Junta de Conciliación y Arbitraje as a victim — all within weeks in Q1 2026. The Mexico Ransomware Task Force, launched in March 2026, signals growing recognition that national response capacity requires urgent structural reinforcement.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">#11</div><div class="metric-label">Global Ranking 2025</div></div>
+                    <div class="metric-card"><div class="metric-value">75</div><div class="metric-label">Leak-Site Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">248</div><div class="metric-label">Cumulative Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">277GB</div><div class="metric-label">SHF Exfiltration</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The SHF breach by LockBit 5.0 in January 2026 represented a direct attack on Mexico's federal housing finance infrastructure, with 277 GB of mortgage data exfiltrated. The convergence of underfunded public-sector cybersecurity, legacy IT infrastructure in manufacturing and government, supply-chain exposure from nearshoring expansion, and the RaaS affiliate migration following LockBit's partial disruption has made Mexico an increasingly high-value target. The National Cybersecurity Plan 2025–2030 and pending Ley Federal de Ciberseguridad represent progress, but implementation lags behind threat escalation.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>Qilin · LockBit 5.0 · CL0P · Kazu · Tengu — with LockBit 5.0's breach of SHF (277 GB exfiltration) and Qilin's compromise of financial transfer channels representing the most significant attacks on Mexican federal financial infrastructure in 2026.</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Mexico is experiencing a structural shift in its threat environment. The convergence of underfunded public-sector cybersecurity, legacy IT infrastructure, supply-chain exposure from nearshoring expansion, and RaaS affiliate migration has created a rapidly escalating threat trajectory. The Mexico Ransomware Task Force (March 2026) is a positive development, but implementation of the National Cybersecurity Plan 2025–2030 must accelerate significantly to match the pace of threat evolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PAKISTAN
+         ============================================ -->
+    <section class="section" id="pakistan">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 05 — South Asia</span>
+                        <h2 class="section-title">Pakistan <span class="accent">Ransomware Landscape</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2022–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇵🇰</div>
+                    <div class="country-name">PAKISTAN <span>— Structurally Dangerous Phase</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Pakistan's ransomware threat landscape has entered a structurally dangerous phase. Ransomware.live tracks 38 confirmed cumulative Pakistani victims — a figure that dramatically understates true incident volume given endemic non-disclosure. Between January and September 2025, Kaspersky documented over 5.3 million on-device cyberattacks against Pakistani infrastructure, with targeted ransomware detections numbering 42,000. The CEO of PITC disclosed that Pakistan faced 40 million cyberattacks in a single year.</p>
+                    <p>On August 6, 2025, Pakistan Petroleum Limited (PPL) — the nation's second-largest state-owned oil and gas company — suffered a confirmed Blue Locker ransomware attack. In November 2025, the Punjab Forensic Science Agency (PFSA) was claimed by BEAST ransomware with 900 GB of sensitive forensic records. In May 2026, TheGentlemen claimed Beaconhouse School System with over 380,000 students across 8 countries. CL0P's Oracle EBS zero-day swept multiple Pakistani industrial companies in Q4 2025.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">38+</div><div class="metric-label">Confirmed Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">42K</div><div class="metric-label">Ransomware Detections</div></div>
+                    <div class="metric-card"><div class="metric-value">5.3M</div><div class="metric-label">On-Device Attacks 2025</div></div>
+                    <div class="metric-card"><div class="metric-value">7</div><div class="metric-label">Active APT Groups</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The PPL Blue Locker attack (August 2025) targeted the nation's second-largest state-owned oil and gas company supplying over one-fifth of national gas — encrypting systems, deleting backups, and prompting NCERT to issue high-alert advisories to 39 federal ministries. The PFSA/BEAST incident (November 2025) compromised 900 GB of DNA, latent fingerprint, pathology, and computer forensics data for Pakistani law enforcement — a breach with implications for national criminal justice infrastructure. The Beaconhouse/TheGentlemen incident (May 2026) demonstrated that even the education sector is not immune, with 380,000 students' data at risk across 8 countries.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>Blue Locker · BEAST · TheGentlemen · CL0P · LockBit · Qilin · RansomHouse — with 7 active APT groups targeting Pakistan and CL0P's Oracle EBS zero-day (CVE-2025-61882) sweeping multiple industrial and energy companies in Q4 2025.</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Pakistan faces a multi-layered ransomware crisis combining state-adjacent APT activity, organized RaaS operations targeting critical national infrastructure, and an expanding attack surface driven by rapid digitization. The PPL and PFSA incidents represent attacks on national energy and criminal justice infrastructure respectively — indicating that ransomware is no longer merely an economic threat but a direct challenge to state capacity. Endemic non-disclosure across government and private sectors means the true incident volume likely exceeds reported figures by an order of magnitude.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PERU
+         ============================================ -->
+    <section class="section" id="peru">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 06 — Latin America</span>
+                        <h2 class="section-title">Peru <span class="accent">Ransomware Landscape</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2022–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇵🇪</div>
+                    <div class="country-name">PERU <span>— Escalating National Security Threat</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Peru's ransomware exposure has escalated sharply in 2025–2026, with ransomware.live tracking 69 confirmed cumulative victims as of June 2026 — positioning Peru as the third most targeted nation in Latin America after Brazil and Mexico. The concentration of recent incidents against critical national infrastructure, government digital platforms, financial institutions, and energy companies reveals a threat profile with immediate national security implications.</p>
+                    <p>In October 2024, Interbank — Peru's fourth-largest bank — confirmed a 3.7 TB breach exposing data of over 3 million customers. In May 2025, Rhysida claimed breach of gob.pe, Peru's unified government digital services platform, demanding 5 bitcoin (~$488,000 USD). In November 2025, BlackShrantac claimed SUNAFIL with 200 GB of sensitive regulatory data. In April–May 2026, Peru LNG — the only LNG export facility in South America — was targeted.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">69+</div><div class="metric-label">Cumulative Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">#3</div><div class="metric-label">LATAM Ranking</div></div>
+                    <div class="metric-card"><div class="metric-value">3.7TB</div><div class="metric-label">Interbank Breach</div></div>
+                    <div class="metric-card"><div class="metric-value">5 BTC</div><div class="metric-label">Gov.pe Ransom</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The Interbank breach (October 2024) exposed data of over 3 million customers after the bank refused to pay an extortion demand — data was subsequently published on BreachForums. The Rhysida/gob.pe attack (May 2025) targeted Peru's unified government digital services platform with a $488,000 ransom demand, confirming access to the Piura Tax Administration Service. The SUNAFIL/BlackShrantac incident (November 2025) compromised 200 GB of labor regulatory and enforcement data. The Peru LNG targeting (April–May 2026) represented an attack on the only LNG export facility in South America — operated jointly by Hunt LNG, MidOcean, Mitsubishi, and Shell.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>kzoldyck · Rhysida · BlackShrantac · Nightspire · Lynx — with attacks spanning financial services (Interbank 3.7TB), government platforms (gob.pe 5 BTC ransom), labor regulation (SUNAFIL 200GB), and critical energy infrastructure (Peru LNG).</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Peru's ransomware trajectory represents a national security concern that extends beyond data theft. The systematic targeting of financial infrastructure, government digital services, labor regulation, and energy export facilities indicates that threat actors are deliberately attacking the institutional foundations of Peru's economy. The 3.7 TB Interbank breach and 5 BTC government ransom demand represent two of the most significant financial cyber incidents in Peruvian history. The targeting of Peru LNG — the only LNG export facility in South America — signals that energy infrastructure is now firmly in the crosshairs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VENEZUELA
+         ============================================ -->
+    <section class="section" id="venezuela">
+        <div class="container">
+            <div class="country-report">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <div>
+                        <span class="section-label">// 07 — Latin America</span>
+                        <h2 class="section-title">Venezuela <span class="accent">Cyber Threat Intelligence</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">2022–2026</span>
+                </div>
+
+                <div class="country-header" style="margin-top: 40px;">
+                    <div class="country-flag">🇻🇪</div>
+                    <div class="country-name">VENEZUELA <span>— Unique Complexity</span></div>
+                </div>
+
+                <div class="exec-summary">
+                    <h4>EXECUTIVE SUMMARY</h4>
+                    <p>Venezuela's cyber threat environment in 2022–2026 is uniquely complex: it combines a growing ransomware-as-a-service victim profile with a parallel layer of destructive, state-adjacent cyber operations against critical energy infrastructure that are unprecedented in Latin America. Ransomware.live tracks 33 confirmed cumulative leak-site victims as of June 2026 — a figure that significantly understates true incident volume given Venezuela's near-total institutional non-disclosure culture.</p>
+                    <p>Banco de Venezuela, the country's largest bank with over 21.7 million accounts, was targeted by LockBit 3.0 in April 2023. In February 2024, Digitel was struck by Medusa ransomware with a $5 million demand. BNC was hit by Qilin in July 2025 with an $8 million demand, then struck again by the same group in April 2026 — a double-victimization unprecedented in Venezuelan ransomware history. PDVSA, the state oil giant, suffered a ransomware attack in December 2025, followed by Lotus Wiper malware targeting the energy sector.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card"><div class="metric-value">33+</div><div class="metric-label">Confirmed Victims</div></div>
+                    <div class="metric-card"><div class="metric-value">$5M</div><div class="metric-label">Digitel Demand</div></div>
+                    <div class="metric-card"><div class="metric-value">$8M</div><div class="metric-label">BNC Demand</div></div>
+                    <div class="metric-card"><div class="metric-value">2x</div><div class="metric-label">BNC Double Hit</div></div>
+                </div>
+
+                <h3>Crisis & Critical Incident <span class="accent">Analysis</span></h3>
+                <p>The Banco de Venezuela/LockBit 3.0 incident (April 2023) targeted the country's largest bank with 21.7 million accounts — one of Latin America's highest-profile ransomware incidents against a state-owned financial institution. The Digitel/Medusa attack (February 2024) carried a $5 million ransom demand against Venezuela's second-largest mobile operator with 4.5 million subscribers. The BNC double-victimization by Qilin (July 2025 and April 2026) — with an $8 million demand in the first attack — represents the first time a single RaaS operator has struck the same Venezuelan organization twice within nine months. The PDVSA ransomware attack (December 2025) and Lotus Wiper malware targeting the energy sector represent destructive state-adjacent operations unprecedented in Latin America.</p>
+
+                <div class="highlight-box">
+                    <span class="hl-label">Key Threat Groups</span>
+                    <p>LockBit 3.0 · Medusa · Qilin · TheGentlemen · Babuk2 · Lotus Wiper — combining criminal ransomware operations with destructive state-adjacent cyber operations against critical energy infrastructure (PDVSA Dec 2025, Lotus Wiper Dec 2025/Apr 2026).</p>
+                </div>
+
+                <div class="assessment-box">
+                    <span class="asm-label">Analyst Assessment</span>
+                    <p>Venezuela represents the most complex cyber threat environment in Latin America. The convergence of criminal ransomware operations (LockBit, Medusa, Qilin) with destructive state-adjacent attacks (Lotus Wiper against PDVSA) creates a dual-layer threat that is unique in the region. The BNC double-victimization by Qilin demonstrates that Venezuelan organizations are being specifically re-targeted. The absence of cybersecurity legislation, near-total institutional non-disclosure, and sanctions-constrained economy create an environment where ransomware thrives in near-total opacity. The true incident volume likely exceeds reported figures by a significant margin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="report-footer">
+        <div class="container">
+            <p><span class="brand">Ransomware Intelligence Report 2021–2026</span> — Compiled from open-source intelligence</p>
+            <p style="margin-top: 8px; font-size: 11px;">Sources: SOCRadar · ransomware.live · Kaspersky · Intel 471 · Check Point · Breachsense · Acronis · National cybersecurity agency advisories</p>
+            <p style="margin-top: 8px; font-size: 11px;">Classification: TLP:WHITE — For authorized distribution only</p>
+            <a href="index.html" class="back-home">← Back to CMAB</a>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
+
+</body>
+</html>
