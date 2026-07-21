@@ -10,6 +10,7 @@
     --accent3: #00d4ff;
     --success: #00ff88;
     --mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    --font-signature: 'Playfair Display', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,50 +76,39 @@ body {
 nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    padding: 0;
+    padding: 1.1rem 2rem;
     background: rgba(5,5,8,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     z-index: 1000;
     display: flex;
-    flex-direction: column;
-    transition: all 0.3s;
-}
-
-/* Row 1: the CMAB wordmark, centered and dominant */
-.nav-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 2rem 0.5rem;
-    transition: padding 0.3s;
-}
-nav.scrolled .nav-top { padding: 0.55rem 2rem 0.2rem; }
-
-/* Row 2: the actual navigation links */
-.nav-bottom {
-    display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 2rem 0.7rem;
-    transition: padding 0.3s;
+    transition: all 0.3s;
 }
-nav.scrolled .nav-bottom { padding: 0 2rem 0.5rem; }
-
 nav.scrolled {
+    padding: 0.7rem 2rem;
     background: rgba(5,5,8,0.95);
 }
 
+/* The name, centered in the nav — a single row, no wrapper rows */
 .logo {
-    display: inline-block;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-signature);
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+    letter-spacing: 0.3px;
     text-decoration: none;
-    line-height: 0;
-}
-.logo-img {
-    display: block;
-    height: clamp(110px, 15vw, 220px);
-    width: auto;
-    mix-blend-mode: screen;
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s linear infinite;
 }
 
 .nav-links {
@@ -165,7 +155,7 @@ nav.nav-open .nav-links { transform: translateX(0); }
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 21rem 2rem 7rem;
+    padding: 8rem 2rem 7rem;
     position: relative;
     z-index: 1;
 }
@@ -173,7 +163,7 @@ nav.nav-open .nav-links { transform: translateX(0); }
 /* Shorter header variant for secondary pages (About, Portfolio) */
 .hero.page-hero {
     min-height: 56vh;
-    padding: 22rem 2rem 3rem;
+    padding: 9rem 2rem 3rem;
 }
 
 .hero-content {
@@ -1168,13 +1158,12 @@ footer {
 @media (max-width: 768px) {
     .hero h1 { letter-spacing: -1px; }
     .hero-cta { flex-direction: column; align-items: center; }
-    .hero { padding: 11rem 1.2rem 6rem; }
+    .hero { padding: 7rem 1.2rem 6rem; }
     .trusted { max-width: 100%; }
     .trusted-body { padding: 1rem; font-size: 0.76rem; }
     .trusted-cmd { white-space: normal; }
     .trusted-output span { font-size: 0.72rem; padding: 0.22rem 0.6rem; }
     .hero-eyebrow { font-size: 0.62rem; letter-spacing: 2px; }
-    .logo-img { height: 56px; }
 }
 
 /* ============ PAGE LINKS STRIP — visible buttons to About/Portfolio ============ */
