@@ -10,8 +10,6 @@
     --accent3: #00d4ff;
     --success: #00ff88;
     --mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-    --font-display: 'Archivo Black', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-    --font-metal: 'Nosifer', 'Archivo Black', 'Arial Black', sans-serif;
     --blood: #a80d1a;
 }
 
@@ -113,17 +111,14 @@ nav.scrolled {
 }
 
 .logo {
-    font-family: var(--font-metal);
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    font-weight: 400;
-    letter-spacing: 1px;
+    display: inline-block;
     text-decoration: none;
-    color: var(--blood);
-    text-shadow:
-        0 0 6px rgba(255,30,50,0.85),
-        0 0 18px rgba(200,10,25,0.6),
-        0 0 34px rgba(150,5,20,0.4),
-        2px 2px 0 rgba(0,0,0,0.9);
+    line-height: 0;
+}
+.logo-img {
+    display: block;
+    height: clamp(64px, 9vw, 108px);
+    width: auto;
 }
 
 .nav-links {
@@ -1159,7 +1154,7 @@ footer {
     .trusted-cmd { white-space: normal; }
     .trusted-output span { font-size: 0.72rem; padding: 0.22rem 0.6rem; }
     .hero-eyebrow { font-size: 0.62rem; letter-spacing: 2px; }
-    .logo { font-size: 2.1rem; }
+    .logo-img { height: 56px; }
 }
 
 /* ============ PAGE LINKS STRIP — visible buttons to About/Portfolio ============ */
@@ -1511,24 +1506,22 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 }
 .cta-box.visible h2 { animation: gradientShift 6s linear infinite; }
 
-/* Blood-red breathing glow on the logo */
+/* Blood-red breathing glow on the logo image */
 @keyframes bloodPulse {
     0%, 100% {
-        text-shadow:
-            0 0 6px rgba(255,30,50,0.85),
-            0 0 18px rgba(200,10,25,0.6),
-            0 0 34px rgba(150,5,20,0.4),
-            2px 2px 0 rgba(0,0,0,0.9);
+        filter:
+            drop-shadow(0 0 6px rgba(255,30,50,0.85))
+            drop-shadow(0 0 18px rgba(200,10,25,0.6))
+            drop-shadow(0 0 34px rgba(150,5,20,0.4));
     }
     50% {
-        text-shadow:
-            0 0 10px rgba(255,40,60,1),
-            0 0 26px rgba(220,15,30,0.75),
-            0 0 46px rgba(180,8,25,0.5),
-            2px 2px 0 rgba(0,0,0,0.9);
+        filter:
+            drop-shadow(0 0 10px rgba(255,40,60,1))
+            drop-shadow(0 0 26px rgba(220,15,30,0.75))
+            drop-shadow(0 0 46px rgba(180,8,25,0.5));
     }
 }
-.logo { animation: bloodPulse 3.5s ease-in-out infinite; }
+.logo-img { animation: bloodPulse 3.5s ease-in-out infinite; }
 
 /* Radial mouse-follow glow inside tilt cards */
 .skill-card::before, .service-card:not(.featured)::before {
@@ -1736,7 +1729,7 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 .logo::after {
     content: '';
     position: absolute;
-    left: -16px; right: -16px; top: -10px; bottom: -10px;
+    left: -10px; right: -10px; top: -8px; bottom: -8px;
     border-radius: 10px;
     border: 1px solid transparent;
     transition: border-color 0.4s ease;
@@ -1909,15 +1902,15 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 }
 
 /* Occasional flicker blip on the logo, like a dying ember catching light */
-.logo { animation: bloodPulse 3.5s ease-in-out infinite, logoGlitch 8s ease-in-out infinite; }
+.logo-img { animation: bloodPulse 3.5s ease-in-out infinite, logoGlitch 8s ease-in-out infinite; }
 @keyframes logoGlitch {
     0%, 94%, 100% { transform: translateX(0); }
     95% {
-        text-shadow: 2px 0 #fff, -2px 0 var(--blood), 0 0 22px rgba(255,40,60,0.9);
+        filter: drop-shadow(2px 0 #fff) drop-shadow(-2px 0 var(--blood)) drop-shadow(0 0 22px rgba(255,40,60,0.9));
         transform: translateX(-1px);
     }
     96% {
-        text-shadow: -2px 0 #fff, 2px 0 var(--blood), 0 0 22px rgba(255,40,60,0.9);
+        filter: drop-shadow(-2px 0 #fff) drop-shadow(2px 0 var(--blood)) drop-shadow(0 0 22px rgba(255,40,60,0.9));
         transform: translateX(1px);
     }
     97% { transform: translateX(0); }
