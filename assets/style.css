@@ -1137,7 +1137,67 @@ footer {
     .hero-eyebrow { font-size: 0.62rem; letter-spacing: 2px; }
 }
 
+/* ============ PAGE LINKS STRIP — visible buttons to About/Portfolio ============ */
+.page-links-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+.page-link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.6rem 1.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.page-link-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,45,120,0.35);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+}
+.page-link-card .plc-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent3);
+}
+.page-link-card .plc-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+}
+.page-link-card .plc-arrow {
+    color: var(--accent);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.page-link-card:hover .plc-arrow { transform: translateX(6px); }
+@media (max-width: 640px) {
+    .page-links-strip { grid-template-columns: 1fr; }
+}
+
 /* ============ MOBILE NAV ============ */
+.nav-toggle-wrap {
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+}
+.nav-toggle-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -1180,6 +1240,7 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 .nav-backdrop.visible { opacity: 1; }
 
 @media (max-width: 768px) {
+    .nav-toggle-wrap { display: flex; }
     .nav-toggle { display: flex; }
 
     .nav-links {

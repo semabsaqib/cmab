@@ -18,9 +18,12 @@
     
     <nav>
         <a href="index.html" class="logo">CMAB</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="nav-toggle-wrap">
+            <span class="nav-toggle-label">Menu</span>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="#redteam">Red Team</a></li>
@@ -74,6 +77,18 @@
             <span class="chev"></span>
         </div>
     </section>
+
+    <div class="page-links-strip stagger">
+        <a href="about.html" class="page-link-card">
+            <span class="plc-tag">// ABOUT</span>
+            <span class="plc-title">Read the Operator's Brief <span class="plc-arrow">→</span></span>
+        </a>
+        <a href="portfolio.html" class="page-link-card">
+            <span class="plc-tag">// PORTFOLIO</span>
+            <span class="plc-title">See the Case Files <span class="plc-arrow">→</span></span>
+        </a>
+    </div>
+
     <section id="redteam" class="redteam-section">
         <div class="section-header fade-in">
             <div class="section-label">// RED TEAM</div>

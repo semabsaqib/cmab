@@ -18,9 +18,12 @@
 
     <nav>
         <a href="index.html" class="logo">CMAB</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="nav-toggle-wrap">
+            <span class="nav-toggle-label">Menu</span>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="index.html#redteam">Red Team</a></li>
@@ -47,6 +50,17 @@
             </p>
         </div>
     </section>
+
+    <div class="page-links-strip stagger">
+        <a href="index.html" class="page-link-card">
+            <span class="plc-tag">// HOME</span>
+            <span class="plc-title">Back to the Homepage <span class="plc-arrow">→</span></span>
+        </a>
+        <a href="about.html" class="page-link-card">
+            <span class="plc-tag">// ABOUT</span>
+            <span class="plc-title">Read the Operator's Brief <span class="plc-arrow">→</span></span>
+        </a>
+    </div>
 
     <section id="evidence" class="evidence-section">
         <div class="evidence-wrap">
