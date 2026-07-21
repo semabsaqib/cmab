@@ -4,26 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMAB | Red Team Operator — Classical & Agentic AI Adversary Emulation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Pirata+One&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #08070a;
-            --surface: #0f0d12;
-            --surface2: #16131b;
-            --border: #241f2b;
-            --text: #e6e1d6;
-            --text-muted: #8a8398;
-            --accent: #9d1b2f;
-            --accent2: #7a3b9e;
-            --accent3: #c8bda3;
-            --success: #8fae4b;
-            --poison: #8fae4b;
-            --blood: #6e0f1e;
+            --bg: #050508;
+            --surface: #0d0d14;
+            --surface2: #14141f;
+            --border: #1f1f2e;
+            --text: #f0f0f8;
+            --text-muted: #7878a0;
+            --accent: #ff2d78;
+            --accent2: #7c3aed;
+            --accent3: #00d4ff;
+            --success: #00ff88;
             --mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-            --font-gothic: 'Playfair Display', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-            --font-black: 'Pirata One', 'Playfair Display', Georgia, serif;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,19 +24,12 @@
         html { scroll-behavior: smooth; }
         
         body {
-            font-family: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            font-feature-settings: 'kern' 1, 'liga' 1;
         }
-
-        h1, h2, h3, h4 { text-wrap: balance; }
-        p, .flagship-body p, .case-narr, .stakes-lead { text-wrap: pretty; }
         
         /* Particle canvas */
         #particles {
@@ -197,7 +183,7 @@
         
         .hero h1 .line1 {
             display: block;
-            background: linear-gradient(135deg, #fff 0%, #d8d2c4 100%);
+            background: linear-gradient(135deg, #fff 0%, #c0c0d8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -242,12 +228,12 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             color: white;
-            box-shadow: 0 4px 25px rgba(157,27,47,0.25);
+            box-shadow: 0 4px 25px rgba(255,45,120,0.25);
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 35px rgba(157,27,47,0.4);
+            box-shadow: 0 8px 35px rgba(255,45,120,0.4);
         }
         
         .btn-secondary {
@@ -259,7 +245,7 @@
         .btn-secondary:hover {
             border-color: var(--accent);
             color: var(--accent);
-            background: rgba(157,27,47,0.05);
+            background: rgba(255,45,120,0.05);
         }
         
         /* Trusted by — hacker terminal window */
@@ -279,7 +265,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(0deg, rgba(200,189,163,0.025) 0px, rgba(200,189,163,0.025) 1px, transparent 1px, transparent 3px);
+            background: repeating-linear-gradient(0deg, rgba(0,212,255,0.025) 0px, rgba(0,212,255,0.025) 1px, transparent 1px, transparent 3px);
             pointer-events: none;
             mix-blend-mode: screen;
         }
@@ -342,7 +328,7 @@
             padding: 0.25rem 0.7rem;
             border: 1px solid var(--border);
             border-radius: 5px;
-            background: rgba(200,189,163,0.03);
+            background: rgba(0,212,255,0.03);
             transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
             cursor: default;
         }
@@ -352,8 +338,8 @@
         }
         .trusted-output span:hover {
             color: var(--text);
-            border-color: rgba(200,189,163,0.4);
-            box-shadow: 0 0 16px rgba(200,189,163,0.15);
+            border-color: rgba(0,212,255,0.4);
+            box-shadow: 0 0 16px rgba(0,212,255,0.15);
             transform: translateY(-2px);
         }
         
@@ -482,10 +468,10 @@
         }
         .rt-col:hover {
             transform: translateY(-6px);
-            border-color: rgba(157,27,47,0.3);
+            border-color: rgba(255,45,120,0.3);
             box-shadow: 0 24px 55px rgba(0,0,0,0.4);
         }
-        .rt-col.ai:hover { border-color: rgba(200,189,163,0.3); }
+        .rt-col.ai:hover { border-color: rgba(0,212,255,0.3); }
         .rt-tag {
             font-family: var(--mono);
             font-size: 0.72rem;
@@ -551,9 +537,9 @@
             padding: 0.25rem 0.65rem;
             border: 1px solid var(--border);
             border-radius: 5px;
-            background: rgba(157,27,47,0.03);
+            background: rgba(255,45,120,0.03);
         }
-        .rt-col.ai .rt-frameworks .fw { background: rgba(200,189,163,0.03); }
+        .rt-col.ai .rt-frameworks .fw { background: rgba(0,212,255,0.03); }
         .redteam-engagements {
             max-width: 1100px;
             margin: 2rem auto 0;
@@ -568,7 +554,7 @@
             padding: 1.3rem 1.4rem;
             transition: border-color 0.35s ease, transform 0.35s ease;
         }
-        .rt-eng:hover { border-color: rgba(122,59,158,0.4); transform: translateY(-3px); }
+        .rt-eng:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-3px); }
         .rt-eng .t {
             font-weight: 700;
             font-size: 1rem;
@@ -601,7 +587,7 @@
         .case-file::after {
             content: '';
             position: absolute; inset: 0;
-            background: repeating-linear-gradient(0deg, rgba(200,189,163,0.018) 0px, rgba(200,189,163,0.018) 1px, transparent 1px, transparent 3px);
+            background: repeating-linear-gradient(0deg, rgba(0,212,255,0.018) 0px, rgba(0,212,255,0.018) 1px, transparent 1px, transparent 3px);
             pointer-events: none;
             mix-blend-mode: screen;
         }
@@ -629,10 +615,10 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--success);
-            border: 1px solid rgba(143,174,75,0.25);
+            border: 1px solid rgba(0,255,136,0.25);
             border-radius: 20px;
             padding: 0.2rem 0.75rem;
-            background: rgba(143,174,75,0.05);
+            background: rgba(0,255,136,0.05);
         }
         .case-body { padding: 2.6rem 2.4rem 2.4rem; }
         .case-head {
@@ -687,7 +673,7 @@
             border-radius: 5px;
             padding: 0.2rem 0.6rem;
             margin: 0 0 0.4rem 0.4rem;
-            background: rgba(157,27,47,0.04);
+            background: rgba(255,45,120,0.04);
             color: #c2c2d6;
         }
         .case-narr {
@@ -801,10 +787,10 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--text);
-            border: 1px solid rgba(122,59,158,0.4);
+            border: 1px solid rgba(124,58,237,0.4);
             border-radius: 6px;
             padding: 0.35rem 0.8rem;
-            background: rgba(122,59,158,0.08);
+            background: rgba(124,58,237,0.08);
         }
 
         /* secondary evidence cards below flagship */
@@ -821,7 +807,7 @@
             padding: 1.7rem 1.6rem;
             transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
         }
-        .ev-card:hover { border-color: rgba(200,189,163,0.35); transform: translateY(-5px); }
+        .ev-card:hover { border-color: rgba(0,212,255,0.35); transform: translateY(-5px); }
         .ev-card .ev-tag {
             font-family: var(--mono);
             font-size: 0.68rem;
@@ -895,14 +881,14 @@
         
         .problem-box {
             padding: 2.5rem;
-            background: rgba(157,27,47,0.03);
-            border: 1px solid rgba(157,27,47,0.15);
+            background: rgba(255,45,120,0.03);
+            border: 1px solid rgba(255,45,120,0.15);
             border-radius: 16px;
         }
         
         .problem-box.benefit {
-            background: rgba(200,189,163,0.03);
-            border-color: rgba(200,189,163,0.15);
+            background: rgba(0,212,255,0.03);
+            border-color: rgba(0,212,255,0.15);
         }
         
         .problem-box h3 {
@@ -958,7 +944,7 @@
         
         .skill-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(157,27,47,0.3);
+            border-color: rgba(255,45,120,0.3);
             box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
         
@@ -978,7 +964,7 @@
             display: inline-block;
             margin-top: 1rem;
             padding: 0.3rem 0.8rem;
-            background: rgba(157,27,47,0.1);
+            background: rgba(255,45,120,0.1);
             border-radius: 20px;
             font-size: 0.7rem;
             font-weight: 700;
@@ -1011,7 +997,7 @@
         
         .service-card.featured {
             border-color: var(--accent);
-            background: linear-gradient(135deg, rgba(157,27,47,0.05), rgba(122,59,158,0.05));
+            background: linear-gradient(135deg, rgba(255,45,120,0.05), rgba(124,58,237,0.05));
         }
         
         .service-card:hover {
@@ -1108,8 +1094,8 @@
         }
         
         .cta-box {
-            background: linear-gradient(135deg, rgba(157,27,47,0.1), rgba(122,59,158,0.1));
-            border: 1px solid rgba(157,27,47,0.2);
+            background: linear-gradient(135deg, rgba(255,45,120,0.1), rgba(124,58,237,0.1));
+            border: 1px solid rgba(255,45,120,0.2);
             border-radius: 24px;
             padding: 4rem 3rem;
             max-width: 700px;
@@ -1184,7 +1170,7 @@
             height: 3px;
             width: 0%;
             background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-            box-shadow: 0 0 12px rgba(157,27,47,0.6);
+            box-shadow: 0 0 12px rgba(255,45,120,0.6);
             z-index: 2000;
             transition: width 0.1s linear;
         }
@@ -1257,7 +1243,7 @@
             position: relative;
         }
         .service-card.featured::after {
-            background: linear-gradient(115deg, transparent 30%, rgba(157,27,47,0.12) 48%, transparent 66%);
+            background: linear-gradient(115deg, transparent 30%, rgba(255,45,120,0.12) 48%, transparent 66%);
             background-size: 250% 250%;
             opacity: 1;
             animation: sheen 3.5s ease infinite;
@@ -1354,8 +1340,8 @@
         }
         .cta-box.visible { animation: breathe 5s ease-in-out infinite; }
         @keyframes breathe {
-            0%, 100% { box-shadow: 0 0 40px rgba(157,27,47,0.08); }
-            50% { box-shadow: 0 0 70px rgba(122,59,158,0.18); }
+            0%, 100% { box-shadow: 0 0 40px rgba(255,45,120,0.08); }
+            50% { box-shadow: 0 0 70px rgba(124,58,237,0.18); }
         }
 
         /* Animated gradient sweep (referenced by hero headline + logo) */
@@ -1373,7 +1359,7 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: radial-gradient(320px circle at var(--mx,50%) var(--my,50%), rgba(157,27,47,0.10), transparent 45%);
+            background: radial-gradient(320px circle at var(--mx,50%) var(--my,50%), rgba(255,45,120,0.10), transparent 45%);
             opacity: 0;
             transition: opacity 0.35s ease;
             pointer-events: none;
@@ -1417,12 +1403,12 @@
 
         /* Skill chip glow on hover */
         .skill-level { transition: box-shadow 0.4s ease, transform 0.4s ease; }
-        .skill-card:hover .skill-level { box-shadow: 0 0 18px rgba(157,27,47,0.4); transform: translateY(-2px); }
+        .skill-card:hover .skill-level { box-shadow: 0 0 18px rgba(255,45,120,0.4); transform: translateY(-2px); }
 
         /* Problem/benefit card lift + list cascade */
         .problem-box { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease, border-color 0.45s ease; }
-        .problem-box:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 25px 55px rgba(0,0,0,0.35); border-color: rgba(157,27,47,0.35); }
-        .problem-box.benefit:hover { border-color: rgba(200,189,163,0.35); }
+        .problem-box:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 25px 55px rgba(0,0,0,0.35); border-color: rgba(255,45,120,0.35); }
+        .problem-box.benefit:hover { border-color: rgba(0,212,255,0.35); }
         .problem-box.visible li { animation: liSlide 0.5s cubic-bezier(0.16,1,0.3,1) backwards; }
         .problem-box.visible li:nth-child(1){animation-delay:.12s}
         .problem-box.visible li:nth-child(2){animation-delay:.22s}
@@ -1459,10 +1445,10 @@
             display: flex; align-items: center; justify-content: center;
             opacity: 0; transform: translateY(20px) scale(0.8); pointer-events: none;
             transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-            z-index: 1500; box-shadow: 0 6px 25px rgba(157,27,47,0.35);
+            z-index: 1500; box-shadow: 0 6px 25px rgba(255,45,120,0.35);
         }
         #toTop.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        #toTop:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 10px 35px rgba(157,27,47,0.5); }
+        #toTop:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 10px 35px rgba(255,45,120,0.5); }
 
         /* ============ ADVANCED MOTION LAYER ============ */
 
@@ -1473,8 +1459,8 @@
             z-index: 0;
             pointer-events: none;
             background-image:
-                linear-gradient(rgba(122,59,158,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(122,59,158,0.05) 1px, transparent 1px);
+                linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
             background-size: 60px 60px;
             mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
             -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
@@ -1556,7 +1542,7 @@
         }
         @keyframes statPop {
             0% { transform: scale(1); }
-            60% { transform: scale(1.14); text-shadow: 0 0 22px rgba(157,27,47,0.5); }
+            60% { transform: scale(1.14); text-shadow: 0 0 22px rgba(255,45,120,0.5); }
             100% { transform: scale(1); }
         }
 
@@ -1577,655 +1563,7 @@
             border: 1px solid transparent;
             transition: border-color 0.4s ease;
         }
-        .logo:hover::after { border-color: rgba(157,27,47,0.35); }
-
-        /* ============================================================
-           NEON STORYTELLING LAYER — spine + chapter markers
-           ============================================================ */
-
-        /* --- The story spine: fixed neon rail with chapter nodes --- */
-        .story-spine {
-            position: fixed;
-            top: 50%;
-            left: 26px;
-            transform: translateY(-50%);
-            z-index: 900;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-            pointer-events: none;
-        }
-        .story-spine .rail {
-            position: absolute;
-            top: 6px; bottom: 6px; left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .story-spine .rail-fill {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 0%;
-            background: linear-gradient(180deg, var(--accent), var(--accent2), var(--accent3));
-            box-shadow: 0 0 10px var(--accent), 0 0 18px rgba(122,59,158,0.5);
-            transition: height 0.15s linear;
-        }
-        .spine-node {
-            position: relative;
-            width: 34px;
-            height: 34px;
-            margin: 9px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: auto;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1;
-        }
-        .spine-node .ring {
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            background: var(--bg);
-            border: 2px solid rgba(255,255,255,0.22);
-            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-        }
-        .spine-node .ch-label {
-            position: absolute;
-            left: 44px;
-            white-space: nowrap;
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            background: rgba(8,8,12,0.9);
-            border: 1px solid var(--border);
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: opacity 0.35s ease, transform 0.35s ease, color 0.35s ease, border-color 0.35s ease;
-            pointer-events: none;
-        }
-        .spine-node .ch-label b { color: var(--accent3); }
-        .spine-node:hover .ch-label { opacity: 1; transform: translateX(0); }
-        .spine-node:hover .ring { border-color: var(--accent3); transform: scale(1.2); }
-        /* active chapter node — neon lit */
-        .spine-node.active .ring {
-            background: var(--accent);
-            border-color: var(--accent);
-            box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent), 0 0 24px rgba(157,27,47,0.5);
-            animation: nodePulse 2s ease-in-out infinite;
-        }
-        .spine-node.active .ch-label {
-            opacity: 1;
-            transform: translateX(0);
-            color: var(--text);
-            border-color: rgba(157,27,47,0.4);
-        }
-        /* completed nodes */
-        .spine-node.done .ring {
-            background: var(--accent2);
-            border-color: var(--accent2);
-            box-shadow: 0 0 6px rgba(122,59,158,0.6);
-        }
-        @keyframes nodePulse {
-            0%, 100% { box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent), 0 0 24px rgba(157,27,47,0.4); }
-            50%      { box-shadow: 0 0 12px var(--accent), 0 0 26px var(--accent), 0 0 40px rgba(157,27,47,0.7); }
-        }
-        @media (max-width: 1200px) { .story-spine { display: none; } }
-
-        /* --- Chapter markers inside sections --- */
-        .chapter-marker {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.9rem;
-            margin-bottom: 1.4rem;
-        }
-        .chapter-marker .ch-num {
-            font-family: var(--mono);
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--accent);
-            text-shadow: 0 0 12px rgba(157,27,47,0.6);
-        }
-        .chapter-marker .ch-rule {
-            width: 46px; height: 1px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-        }
-        .chapter-marker .ch-rule.r { background: linear-gradient(90deg, transparent, var(--accent3)); }
-        .chapter-marker .ch-word {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-        /* left-aligned variant for the flagship brief */
-        .chapter-marker.left { justify-content: flex-start; }
-
-        /* --- Neon divider between story acts --- */
-        .neon-divider {
-            position: relative;
-            height: 1px;
-            max-width: 1100px;
-            margin: 0 auto;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
-            z-index: 1;
-        }
-        .neon-divider::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: 50%;
-            transform: translateX(-50%);
-            width: 180px; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), var(--accent3), transparent);
-            filter: blur(1px);
-            box-shadow: 0 0 14px rgba(157,27,47,0.5);
-            animation: dividerBreathe 5s ease-in-out infinite;
-        }
-        @keyframes dividerBreathe {
-            0%, 100% { opacity: 0.5; width: 140px; }
-            50%      { opacity: 1;   width: 220px; }
-        }
-
-        /* --- Neon glow border utility (reusable) --- */
-        .neon-frame {
-            position: relative;
-        }
-        .neon-frame::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(130deg, var(--accent), transparent 30%, transparent 70%, var(--accent3));
-            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0.6;
-            animation: frameHue 8s linear infinite;
-            pointer-events: none;
-        }
-        @keyframes frameHue { to { filter: hue-rotate(360deg); } }
-
-        /* ===== STAKES SECTION (Chapter 02) ===== */
-        .stakes-section { position: relative; text-align: center; }
-        .stakes-wrap { max-width: 900px; margin: 0 auto; }
-        .stakes-headline {
-            font-size: clamp(1.9rem, 4.5vw, 3rem);
-            font-weight: 900;
-            line-height: 1.12;
-            letter-spacing: -1px;
-            margin-bottom: 1.6rem;
-            max-width: 22ch;
-            margin-inline: auto;
-        }
-        .stakes-headline .danger {
-            color: var(--accent);
-            text-shadow: 0 0 24px rgba(157,27,47,0.45);
-        }
-        .stakes-lead {
-            font-size: 1.12rem;
-            color: #c8c8de;
-            line-height: 1.75;
-            max-width: 62ch;
-            margin: 0 auto 2.8rem;
-        }
-        .stakes-lead strong { color: var(--text); }
-        .stakes-figures {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            max-width: 780px;
-            margin: 0 auto 2.6rem;
-        }
-        .stakes-fig {
-            border: 1px solid rgba(157,27,47,0.2);
-            border-radius: 14px;
-            padding: 1.6rem 1.2rem;
-            background: rgba(157,27,47,0.03);
-        }
-        .stakes-fig .n {
-            font-size: 2.2rem;
-            font-weight: 900;
-            line-height: 1;
-            color: var(--accent);
-            text-shadow: 0 0 18px rgba(157,27,47,0.4);
-        }
-        .stakes-fig .l {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-            line-height: 1.4;
-        }
-        .stakes-turn {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text);
-            max-width: 54ch;
-            margin: 0 auto;
-            line-height: 1.55;
-        }
-        .stakes-turn .flip {
-            background: linear-gradient(135deg, var(--accent3), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-        }
-
-        /* ===== THE PLAN SECTION (how we start) ===== */
-        .plan-section { position: relative; }
-        .plan-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            counter-reset: plan;
-        }
-        .plan-step {
-            position: relative;
-            background: linear-gradient(180deg, rgba(13,13,20,0.9), rgba(8,8,12,0.7));
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.4rem 1.8rem 2rem;
-            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
-        }
-        .plan-step:hover { border-color: rgba(157,27,47,0.35); transform: translateY(-6px); }
-        .plan-step .step-no {
-            font-family: var(--mono);
-            font-size: 2.4rem;
-            font-weight: 800;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        .plan-step h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-            margin-bottom: 0.6rem;
-        }
-        .plan-step p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-        .plan-connector {
-            text-align: center;
-            font-family: var(--mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin: 2.4rem auto 0;
-            max-width: 60ch;
-        }
-        .plan-connector b { color: var(--accent3); }
-        @media (max-width: 820px) {
-            .plan-steps { grid-template-columns: 1fr; }
-        }
-
-        /* ============================================================
-           WEDNESDAY — gothic overlay (type, atmosphere, motifs)
-           ============================================================ */
-
-        /* Gothic serif on all display headings — mono stays for the "dossier" contrast */
-        .hero h1,
-        .flagship h2,
-        .section-header h2,
-        .case-head h3,
-        .stakes-headline,
-        .cta-box h2,
-        .rt-col h3,
-        .plan-step h3,
-        .ev-card h4,
-        .problem-box h3,
-        .skill-card h3,
-        .service-card h3,
-        .testimonial-text,
-        .logo {
-            font-family: var(--font-gothic);
-        }
-        .hero h1 { font-style: italic; font-weight: 900; letter-spacing: -1px; }
-        .section-header h2, .flagship h2, .stakes-headline, .cta-box h2 { font-weight: 900; }
-        .testimonial-text { font-style: italic; }
-        .logo { font-weight: 900; font-style: italic; letter-spacing: 0.5px; }
-
-        /* --- Atmosphere layers --- */
-        .vignette {
-            position: fixed; inset: 0;
-            z-index: 3; pointer-events: none;
-            background: radial-gradient(125% 95% at 50% 38%, transparent 52%, rgba(0,0,0,0.5) 88%, rgba(0,0,0,0.72) 100%);
-            mix-blend-mode: multiply;
-        }
-        .grain {
-            position: fixed; inset: -60%;
-            z-index: 4; pointer-events: none;
-            opacity: 0.045;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            animation: grainShift 5s steps(6) infinite;
-        }
-        @keyframes grainShift {
-            0%{transform:translate(0,0)} 20%{transform:translate(-4%,3%)}
-            40%{transform:translate(3%,-4%)} 60%{transform:translate(-3%,-3%)}
-            80%{transform:translate(4%,4%)} 100%{transform:translate(0,0)}
-        }
-
-        /* Gothic full moon behind the hero */
-        .moon {
-            position: absolute;
-            top: 8%; right: 9%;
-            width: 260px; height: 260px;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle at 38% 34%, rgba(230,225,214,0.10), rgba(200,189,163,0.05) 45%, transparent 70%),
-                radial-gradient(circle at 60% 62%, rgba(122,59,158,0.05), transparent 60%);
-            box-shadow: 0 0 120px 40px rgba(200,189,163,0.06), inset -30px -20px 60px rgba(0,0,0,0.4);
-            z-index: 0; pointer-events: none;
-            filter: blur(0.5px);
-        }
-        @media (max-width: 768px){ .moon { width: 160px; height: 160px; top: 4%; right: 4%; } }
-
-        /* Fixed ornamental corner filigree (frames the page in place of side neon) */
-        .corner-frame {
-            position: fixed;
-            width: 78px; height: 78px;
-            z-index: 6; pointer-events: none;
-            opacity: 0.55;
-        }
-        .corner-frame svg { width: 100%; height: 100%; display: block; }
-        .corner-frame.tl { top: 14px;  left: 14px;  }
-        .corner-frame.tr { top: 14px;  right: 14px; transform: scaleX(-1); }
-        .corner-frame.bl { bottom: 14px; left: 14px;  transform: scaleY(-1); }
-        .corner-frame.br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
-        .corner-frame .fil { stroke: var(--accent3); stroke-width: 1.4; fill: none; opacity: 0.9; }
-        .corner-frame .fil.blood { stroke: var(--accent); opacity: 0.7; }
-        @media (max-width: 700px){ .corner-frame { width: 52px; height: 52px; } }
-
-        /* Perched raven (Nevermore) in the hero */
-        .raven {
-            position: absolute;
-            width: 132px; height: 110px;
-            z-index: 1; pointer-events: none;
-            filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
-            animation: ravenSway 6s ease-in-out infinite;
-            transform-origin: 60px 92px;
-        }
-        .raven .body { fill: #17131c; stroke: rgba(200,189,163,0.22); stroke-width: 1; }
-        .raven .wing { fill: #100d15; }
-        .raven .beak { fill: #241f14; }
-        .raven .eye  { fill: var(--accent); }
-        .raven .eye-glow { fill: var(--accent); filter: blur(2px); opacity: 0.8; animation: ravenEye 4s ease-in-out infinite; }
-        .raven .perch { stroke: rgba(200,189,163,0.18); stroke-width: 1.5; }
-        .raven .leg   { stroke: #17131c; stroke-width: 2.5; }
-        @keyframes ravenSway { 0%,100%{ transform: rotate(0deg); } 50%{ transform: rotate(-2.5deg); } }
-        @keyframes ravenEye  { 0%,100%{ opacity: 0.85; } 45%{ opacity: 0.85; } 50%{ opacity: 0.15; } 55%{ opacity: 0.85; } }
-        @media (max-width: 900px){ .raven { display: none; } }
-
-        /* Thorn / black-rose vines */
-        .thorn { position: absolute; z-index: 0; pointer-events: none; opacity: 0.5; }
-        .thorn .stem  { stroke: rgba(200,189,163,0.35); stroke-width: 1.6; fill: none; }
-        .thorn .spike { fill: rgba(200,189,163,0.32); }
-        .thorn .rose  { fill: var(--blood); stroke: var(--accent); stroke-width: 0.8; }
-        .thorn .rose-c{ fill: #2a0810; }
-        @media (max-width: 768px){ .thorn { opacity: 0.3; } }
-
-        /* Corner spiderweb */
-        .web { position: absolute; z-index: 0; pointer-events: none; opacity: 0.13; }
-        .web path, .web line { stroke: var(--accent3); stroke-width: 0.9; fill: none; }
-
-        /* Gothic epigraph — Wednesday-deadpan aphorism */
-        .epigraph {
-            font-family: var(--font-gothic);
-            font-style: italic;
-            font-weight: 500;
-            font-size: clamp(1.05rem, 2vw, 1.35rem);
-            line-height: 1.5;
-            color: #d8d2c4;
-            max-width: 40ch;
-            margin: 0 auto 2.6rem;
-            position: relative;
-            padding: 0 1.6rem;
-        }
-        .epigraph::before, .epigraph::after {
-            content: '';
-            position: absolute; top: 50%;
-            width: 34px; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent));
-        }
-        .epigraph::before { left: -26px; }
-        .epigraph::after  { right: -26px; transform: scaleX(-1); }
-        .epigraph .em { color: var(--accent); font-weight: 700; }
-
-        /* Section epitaph (small centered gothic line under a divider) */
-        .epitaph {
-            text-align: center;
-            font-family: var(--font-gothic);
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 1.02rem;
-            max-width: 46ch;
-            margin: 2.2rem auto 0;
-            letter-spacing: 0.2px;
-        }
-        .epitaph b { color: #c9c0ae; font-weight: 700; }
-
-        /* Ornament rose on the neon dividers */
-        .neon-divider::after {
-            content: '❦';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -55%);
-            font-size: 1.1rem;
-            color: var(--accent);
-            text-shadow: 0 0 12px rgba(157,27,47,0.6);
-            background: var(--bg);
-            padding: 0 0.6rem;
-        }
-
-        /* "Thing" — the hand, a small Addams nod by the contact CTA */
-        .thing-nod {
-            display: flex; align-items: center; justify-content: center;
-            gap: 0.7rem;
-            margin-top: 2.2rem;
-            font-family: var(--mono);
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-        .thing-nod svg { width: 30px; height: 34px; }
-        .thing-nod .hand { fill: #17131c; stroke: rgba(200,189,163,0.3); stroke-width: 1; }
-        .thing-nod .hand-anim { animation: thingCrawl 3.5s ease-in-out infinite; transform-origin: 50% 100%; }
-        @keyframes thingCrawl { 0%,100%{ transform: translateY(0) rotate(0); } 50%{ transform: translateY(-3px) rotate(-6deg); } }
-
-        /* Nav / logo gothic accents */
-        nav .logo::before {
-            content: '☙ ';
-            font-family: var(--font-gothic);
-            color: var(--accent);
-            -webkit-text-fill-color: var(--accent);
-            font-size: 1rem;
-        }
-
-        /* ============================================================
-           MOTION AMPLIFICATION LAYER — cursor spotlight, tilt everywhere,
-           breathing glows, list cascades, parallax, ripples, draw-ins
-           ============================================================ */
-
-        /* Nav links drop in on load */
-        .nav-links li {
-            opacity: 0;
-            transform: translateY(-8px);
-            animation: dropIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-        }
-        .nav-links li:nth-child(1){animation-delay:.05s}
-        .nav-links li:nth-child(2){animation-delay:.10s}
-        .nav-links li:nth-child(3){animation-delay:.15s}
-        .nav-links li:nth-child(4){animation-delay:.20s}
-        .nav-links li:nth-child(5){animation-delay:.25s}
-        .nav-links li:nth-child(6){animation-delay:.30s}
-        .nav-links li:nth-child(7){animation-delay:.35s}
-
-        /* Global cursor spotlight — a blood-red flashlight tracking the pointer */
-        #cursorGlow {
-            position: fixed;
-            top: 0; left: 0;
-            width: 480px; height: 480px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(157,27,47,0.10), rgba(122,59,158,0.05) 40%, transparent 70%);
-            pointer-events: none;
-            z-index: 2;
-            mix-blend-mode: screen;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            will-change: transform;
-        }
-        #cursorGlow.on { opacity: 1; }
-
-        /* Button click ripple */
-        .btn-ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            transform: scale(0);
-            animation: rippleOut 0.7s ease-out forwards;
-            pointer-events: none;
-        }
-        @keyframes rippleOut { to { transform: scale(1); opacity: 0; } }
-
-        /* Mouse-follow spotlight, extended to every remaining card type */
-        .rt-col, .plan-step, .ev-card, .rt-eng {
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-        .rt-col > *, .plan-step > *, .ev-card > *, .rt-eng > * { position: relative; z-index: 1; }
-        .rt-col::after, .plan-step::after, .ev-card::after, .rt-eng::after {
-            content: '';
-            position: absolute; inset: 0;
-            border-radius: inherit;
-            background: radial-gradient(280px circle at var(--mx,50%) var(--my,50%), rgba(200,189,163,0.09), transparent 45%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .rt-col:hover::after, .plan-step:hover::after, .ev-card:hover::after, .rt-eng:hover::after { opacity: 1; }
-
-        /* Scanning highlight sweeping along the rt-col top bar */
-        .rt-col::before {
-            background-size: 200% 100%;
-            animation: barScan 4s linear infinite;
-        }
-        @keyframes barScan { 0% { background-position: 0% 0; } 100% { background-position: -200% 0; } }
-
-        /* Ambient breathing border-glow on flagship containers */
-        .case-file { transform-style: preserve-3d; }
-        @keyframes borderBreathe {
-            0%, 100% { box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 rgba(157,27,47,0); }
-            50%      { box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 40px rgba(157,27,47,0.18); }
-        }
-        .case-file.visible { animation: borderBreathe 6s ease-in-out infinite; }
-        @keyframes rtGlow {
-            0%, 100% { border-color: var(--border); }
-            50% { border-color: rgba(157,27,47,0.35); }
-        }
-        @keyframes rtGlowAi {
-            0%, 100% { border-color: var(--border); }
-            50% { border-color: rgba(200,189,163,0.35); }
-        }
-        .redteam-grid.visible .rt-col { animation: rtGlow 5s ease-in-out infinite; }
-        .redteam-grid.visible .rt-col.ai { animation-name: rtGlowAi; }
-
-        /* Badge / tag pulses */
-        @keyframes tagPulse {
-            0%, 100% { box-shadow: 0 0 0 rgba(157,27,47,0); }
-            50% { box-shadow: 0 0 10px rgba(157,27,47,0.25); }
-        }
-        .rt-frameworks .fw { animation: tagPulse 3.5s ease-in-out infinite; }
-        .rt-frameworks .fw:nth-child(2) { animation-delay: 0.4s; }
-        .rt-frameworks .fw:nth-child(3) { animation-delay: 0.8s; }
-        .rt-frameworks .fw:nth-child(4) { animation-delay: 1.2s; }
-        .case-role-badge { animation: tagPulse 4s ease-in-out infinite; }
-
-        /* Featured-service badge float (keyframe already existed, now put to work) */
-        .service-card.featured::before { animation: badgeFloat 2.5s ease-in-out infinite; }
-
-        /* List cascades, extended beyond problem-box to the red-team lists & case chain */
-        .redteam-grid.visible .rt-list li { animation: liSlide 0.5s cubic-bezier(0.16,1,0.3,1) backwards; }
-        .redteam-grid.visible .rt-list li:nth-child(1){animation-delay:.08s}
-        .redteam-grid.visible .rt-list li:nth-child(2){animation-delay:.16s}
-        .redteam-grid.visible .rt-list li:nth-child(3){animation-delay:.24s}
-        .redteam-grid.visible .rt-list li:nth-child(4){animation-delay:.32s}
-        .redteam-grid.visible .rt-list li:nth-child(5){animation-delay:.40s}
-        .redteam-grid.visible .rt-list li:nth-child(6){animation-delay:.48s}
-
-        .case-chain.visible li { animation: liSlide 0.55s cubic-bezier(0.16,1,0.3,1) backwards; }
-        .case-chain.visible li:nth-child(1){animation-delay:.10s}
-        .case-chain.visible li:nth-child(2){animation-delay:.25s}
-        .case-chain.visible li:nth-child(3){animation-delay:.40s}
-        .case-chain.visible li:nth-child(4){animation-delay:.55s}
-        .case-chain.visible li:nth-child(5){animation-delay:.70s}
-        .case-chain.visible li::before { animation: nodePulse 2.4s ease-in-out infinite; }
-        .case-chain.visible li:nth-child(2)::before { animation-delay: 0.3s; }
-        .case-chain.visible li:nth-child(3)::before { animation-delay: 0.6s; }
-        .case-chain.visible li:nth-child(4)::before { animation-delay: 0.9s; }
-        .case-chain.visible li:nth-child(5)::before { animation-delay: 1.2s; }
-
-        /* Cascading flip-up entrance, extended to the remaining card grids */
-        .redteam-grid.visible .rt-col,
-        .redteam-engagements.visible .rt-eng,
-        .evidence-strip.visible .ev-card,
-        .plan-steps.visible .plan-step,
-        .stakes-figures.visible .stakes-fig {
-            animation: cardFlipUp 0.7s cubic-bezier(0.16,1,0.3,1) backwards;
-        }
-        .redteam-grid.visible .rt-col:nth-child(2) { animation-delay: 0.1s; }
-        .plan-steps.visible .plan-step:nth-child(2),
-        .stakes-figures.visible .stakes-fig:nth-child(2) { animation-delay: 0.1s; }
-        .plan-steps.visible .plan-step:nth-child(3),
-        .stakes-figures.visible .stakes-fig:nth-child(3) { animation-delay: 0.2s; }
-        .stakes-figures.visible .stakes-fig:nth-child(4) { animation-delay: 0.3s; }
-        .redteam-engagements.visible .rt-eng:nth-child(1){animation-delay:.05s}
-        .redteam-engagements.visible .rt-eng:nth-child(2){animation-delay:.13s}
-        .redteam-engagements.visible .rt-eng:nth-child(3){animation-delay:.21s}
-        .redteam-engagements.visible .rt-eng:nth-child(4){animation-delay:.29s}
-        .evidence-strip.visible .ev-card:nth-child(1){animation-delay:.05s}
-        .evidence-strip.visible .ev-card:nth-child(2){animation-delay:.15s}
-        .evidence-strip.visible .ev-card:nth-child(3){animation-delay:.25s}
-
-        /* Heading glitch-flicker on hover, gothic edition */
-        .rt-col h3, .plan-step h3, .ev-card h4, .case-head h3, .skill-card h3, .service-card h3 {
-            transition: text-shadow 0.2s ease;
-        }
-        .rt-col h3:hover, .plan-step h3:hover, .ev-card h4:hover, .case-head h3:hover,
-        .skill-card h3:hover, .service-card h3:hover {
-            animation: labelGlitch 0.4s steps(2) 1;
-        }
-
-        /* Corner filigree draws itself in on load */
-        .corner-frame .fil {
-            stroke-dasharray: 100;
-            stroke-dashoffset: 100;
-            animation: filDraw 2s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
-        }
-        .corner-frame.tr .fil { animation-delay: 0.55s; }
-        .corner-frame.bl .fil { animation-delay: 0.7s; }
-        .corner-frame.br .fil { animation-delay: 0.85s; }
-        @keyframes filDraw { to { stroke-dashoffset: 0; } }
-
-        .moon { will-change: transform; }
+        .logo:hover::after { border-color: rgba(255,45,120,0.35); }
 
         /* Respect reduced motion */
         @media (prefers-reduced-motion: reduce) {
@@ -2244,43 +1582,12 @@
                 animation: none !important;
             }
             .cyber-grid { animation: none !important; }
-            .spine-node.active .ring, .neon-divider::before,
-            .neon-frame::before, .grain, .raven, .raven .eye-glow,
-            .thing-nod .hand-anim { animation: none !important; }
-            .nav-links li { opacity: 1 !important; transform: none !important; animation: none !important; }
-            .corner-frame .fil { stroke-dashoffset: 0 !important; animation: none !important; }
-            #cursorGlow, .btn-ripple { display: none !important; }
         }
     </style>
 </head>
 <body>
     <div class="cyber-grid"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Gothic atmosphere -->
-    <div class="vignette"></div>
-    <div class="grain"></div>
-
-    <!-- Ornamental corner filigree (frames the page) -->
-    <div class="corner-frame tl"><svg viewBox="0 0 80 80"><path class="fil" pathLength="100" d="M8,52 L8,8 L52,8"/><path class="fil" pathLength="100" d="M8,30 C8,18 18,8 30,8"/><path class="fil blood" pathLength="100" d="M14,14 Q26,20 22,32 Q12,26 14,14 Z"/><circle class="fil" pathLength="100" cx="8" cy="8" r="2.4"/></svg></div>
-    <div class="corner-frame tr"><svg viewBox="0 0 80 80"><path class="fil" pathLength="100" d="M8,52 L8,8 L52,8"/><path class="fil" pathLength="100" d="M8,30 C8,18 18,8 30,8"/><path class="fil blood" pathLength="100" d="M14,14 Q26,20 22,32 Q12,26 14,14 Z"/><circle class="fil" pathLength="100" cx="8" cy="8" r="2.4"/></svg></div>
-    <div class="corner-frame bl"><svg viewBox="0 0 80 80"><path class="fil" pathLength="100" d="M8,52 L8,8 L52,8"/><path class="fil" pathLength="100" d="M8,30 C8,18 18,8 30,8"/><path class="fil blood" pathLength="100" d="M14,14 Q26,20 22,32 Q12,26 14,14 Z"/><circle class="fil" pathLength="100" cx="8" cy="8" r="2.4"/></svg></div>
-    <div class="corner-frame br"><svg viewBox="0 0 80 80"><path class="fil" pathLength="100" d="M8,52 L8,8 L52,8"/><path class="fil" pathLength="100" d="M8,30 C8,18 18,8 30,8"/><path class="fil blood" pathLength="100" d="M14,14 Q26,20 22,32 Q12,26 14,14 Z"/><circle class="fil" pathLength="100" cx="8" cy="8" r="2.4"/></svg></div>
-
-    <!-- Interactive neon story spine -->
-    <nav class="story-spine" id="storySpine" aria-label="Story navigation">
-        <div class="rail"><div class="rail-fill" id="railFill"></div></div>
-        <button class="spine-node" data-target="hero"><span class="ring"></span><span class="ch-label"><b>00</b> · Start Here</span></button>
-        <button class="spine-node" data-target="brief"><span class="ring"></span><span class="ch-label"><b>01</b> · The Problem</span></button>
-        <button class="spine-node" data-target="stakes"><span class="ring"></span><span class="ch-label"><b>02</b> · The Stakes</span></button>
-        <button class="spine-node" data-target="redteam"><span class="ring"></span><span class="ch-label"><b>03</b> · The Method</span></button>
-        <button class="spine-node" data-target="evidence"><span class="ring"></span><span class="ch-label"><b>04</b> · The Proof</span></button>
-        <button class="spine-node" data-target="skills"><span class="ring"></span><span class="ch-label"><b>05</b> · The Arsenal</span></button>
-        <button class="spine-node" data-target="services"><span class="ring"></span><span class="ch-label"><b>06</b> · The Engagement</span></button>
-        <button class="spine-node" data-target="plan"><span class="ring"></span><span class="ch-label"><b>07</b> · How We Start</span></button>
-        <button class="spine-node" data-target="contact"><span class="ring"></span><span class="ch-label"><b>08</b> · Make Contact</span></button>
-    </nav>
-
     <button id="toTop" aria-label="Back to top">↑</button>
     <canvas id="particles"></canvas>
     <div class="glow-orb"></div>
@@ -2290,46 +1597,18 @@
     <nav>
         <div class="logo">CMAB</div>
         <ul class="nav-links">
-            <li><a href="#brief">The Problem</a></li>
-            <li><a href="#stakes">The Stakes</a></li>
-            <li><a href="#redteam">The Method</a></li>
-            <li><a href="#evidence">The Proof</a></li>
-            <li><a href="#services">Engagement</a></li>
-            <li><a href="#plan">How to Start</a></li>
+            <li><a href="#brief">The Brief</a></li>
+            <li><a href="#redteam">Red Team</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#evidence">Field Evidence</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     
     <section class="hero">
-        <!-- Gothic hero motifs -->
-        <div class="moon"></div>
-        <svg class="raven" viewBox="0 0 132 110" aria-hidden="true">
-            <line class="perch" x1="30" y1="98" x2="104" y2="98"/>
-            <line class="leg" x1="60" y1="80" x2="57" y2="97"/>
-            <line class="leg" x1="72" y1="80" x2="75" y2="97"/>
-            <polygon class="body" points="86,60 128,74 90,78"/>
-            <ellipse class="body" cx="66" cy="58" rx="32" ry="21" transform="rotate(-11 66 58)"/>
-            <path class="wing" d="M52,46 Q70,42 92,56 Q68,64 50,58 Z"/>
-            <circle class="body" cx="36" cy="42" r="14"/>
-            <polygon class="beak" points="24,39 4,44 24,49"/>
-            <circle class="eye-glow" cx="31" cy="40" r="3.4"/>
-            <circle class="eye" cx="31" cy="40" r="2.1"/>
-        </svg>
-        <svg class="thorn" style="top:60%;left:2%;width:180px;height:70px;transform:rotate(6deg)" viewBox="0 0 200 70" aria-hidden="true">
-            <path class="stem" d="M2,34 C50,12 105,54 198,26"/>
-            <polygon class="spike" points="40,26 46,16 48,28"/>
-            <polygon class="spike" points="86,44 92,54 78,46"/>
-            <polygon class="spike" points="130,28 136,18 138,30"/>
-            <g transform="translate(186,22)"><circle class="rose" r="9"/><circle class="rose-c" r="4.5"/></g>
-        </svg>
-        <svg class="web" style="top:0;left:0;width:120px;height:120px" viewBox="0 0 120 120" aria-hidden="true">
-            <line x1="0" y1="0" x2="120" y2="10"/><line x1="0" y1="0" x2="118" y2="55"/>
-            <line x1="0" y1="0" x2="120" y2="120"/><line x1="0" y1="0" x2="55" y2="118"/>
-            <line x1="0" y1="0" x2="10" y2="120"/>
-            <path d="M28,0 A28,28 0 0 1 0,28"/><path d="M55,0 A55,55 0 0 1 0,55"/>
-            <path d="M84,0 A84,84 0 0 1 0,84"/><path d="M110,0 A110,110 0 0 1 0,110"/>
-        </svg>
-
         <div class="hero-content">
             <div class="hero-eyebrow">RED TEAM OPERATOR · AGENTIC AI · ADVERSARY EMULATION</div>
             <h1>
@@ -2342,7 +1621,6 @@
                 So do I — a red team operator who emulates human <em>and</em> agentic adversaries, and hands
                 your defenders the evidence before a real one arrives.
             </p>
-            <p class="epigraph">Optimism is a vulnerability. I prefer to <span class="em">assume the worst</span> — then prove it.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">Book a Scoping Call →</a>
                 <a href="#results" class="btn btn-secondary">See the Evidence</a>
@@ -2373,7 +1651,6 @@
     
     <section id="brief" class="flagship-section">
         <div class="flagship fade-in">
-            <div class="chapter-marker left"><span class="ch-num">01</span><span class="ch-rule"></span><span class="ch-word">The Problem</span></div>
             <div class="kicker"><span class="blip">▍</span> THE OPERATOR'S BRIEF</div>
             <h2>Your scanner finds what it was told to look for. <span class="hl">An adversary finds what you forgot.</span></h2>
             <div class="flagship-body">
@@ -2401,40 +1678,8 @@
         </div>
     </section>
     
-    <div class="neon-divider"></div>
-
-    <section id="stakes" class="stakes-section">
-        <div class="stakes-wrap fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">02</span><span class="ch-rule r"></span></div>
-            <div class="section-label" style="color:var(--accent3)">// THE STAKES</div>
-            <h2 class="stakes-headline">This Isn't Theoretical. <span class="danger">It Already Happened.</span></h2>
-            <p class="stakes-lead">
-                In September 2024, two operators walked into Transport for London's network. No exotic malware. No zero-day. Just social engineering and a helpdesk that trusted the wrong phone call. They were teenagers. The bill was not.
-            </p>
-
-            <div class="stakes-figures stagger">
-                <div class="stakes-fig"><div class="n">£29M</div><div class="l">Cost to remediate a single intrusion</div></div>
-                <div class="stakes-fig"><div class="n">140+</div><div class="l">Systems rendered inoperable</div></div>
-                <div class="stakes-fig"><div class="n">3 mo.</div><div class="l">Disruption across a city of 9 million</div></div>
-                <div class="stakes-fig"><div class="n">0</div><div class="l">Zero-days required to do it</div></div>
-            </div>
-
-            <p class="stakes-lead" style="margin-bottom:2.4rem">
-                The uncomfortable part isn't that it was sophisticated — it's that <strong>it wasn't.</strong> The path they took runs through nearly every organization that has never been tested by a real adversary. The only question that matters: would yours hold, and <strong>would you even know it was happening?</strong>
-            </p>
-
-            <p class="stakes-turn">
-                You have two options. Wait for an attacker to answer that question for you — or <span class="flip">have one on your side, first.</span>
-            </p>
-            <p class="epitaph">Here lies every system that was <b>certain</b> it was safe. They all shared one flaw: nobody hostile had looked yet.</p>
-        </div>
-    </section>
-
-    <div class="neon-divider"></div>
-
     <section id="redteam" class="redteam-section">
         <div class="section-header fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">03</span><span class="ch-rule r"></span></div>
             <div class="section-label">// RED TEAM</div>
             <h2>Two Adversaries. One Operator.</h2>
             <p>The threat you face is no longer only human. I run the full red team scope across both fronts — classical intrusion and autonomous AI — so nothing in your attack surface goes untested.</p>
@@ -2537,7 +1782,6 @@
     
     <section id="evidence" class="evidence-section">
         <div class="section-header fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">04</span><span class="ch-rule r"></span></div>
             <div class="section-label">// FIELD EVIDENCE</div>
             <h2>Claims Are Cheap. Here's a Case File.</h2>
             <p>Anyone can list "ransomware intelligence" on a page. This is what it looks like in practice — a live operation, on the record, with the receipts.</p>
@@ -2559,7 +1803,7 @@
                             <div class="case-classification">// RaaS Infrastructure Compromise · Resecurity HUNTER</div>
                             <h3>We Broke Into the Ransomware Crew <span class="hl">Before They Could Break You.</span></h3>
                         </div>
-                        <div class="case-aliases stagger">
+                        <div class="case-aliases">
                             <span class="lbl">Known Aliases</span>
                             <span class="alias">BlackLock</span>
                             <span class="alias">El Dorado</span>
@@ -2576,7 +1820,7 @@
 
                     <p class="case-narr">Access changed the mission from watching to intercepting. The team pulled over <strong>7 TB of stolen data</strong> and warned victims before their information ever went public — reaching the <strong>Canadian Centre for Cyber Security 13 days</strong> ahead of one planned leak, and <strong>CERT-FR/ANSSI two days</strong> ahead of a European legal provider's client data going live. By March, BlackLock and Mamona were offline and the operator had vanished.</p>
 
-                    <div class="case-metrics stagger">
+                    <div class="case-metrics">
                         <div class="case-metric"><div class="n">7&nbsp;TB</div><div class="l">Stolen data recovered from actor infrastructure</div></div>
                         <div class="case-metric cyan"><div class="n">13&nbsp;days</div><div class="l">Advance warning to national CERT before publication</div></div>
                         <div class="case-metric"><div class="n">1,425%</div><div class="l">Quarterly leak growth — halted</div></div>
@@ -2584,7 +1828,7 @@
                     </div>
 
                     <div class="case-chain-label">// Operation Timeline</div>
-                    <ul class="case-chain stagger">
+                    <ul class="case-chain">
                         <li>
                             <div class="step-t">Vulnerability Discovery</div>
                             <div class="step-d">LFI flaw identified in BlackLock's TOR-hosted data-leak site during the winter holiday window.</div>
@@ -2637,7 +1881,6 @@
     
     <section id="skills" class="skills">
         <div class="section-header fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">05</span><span class="ch-rule r"></span></div>
             <div class="section-label">// CAPABILITIES</div>
             <h2>I Don't Test Systems. I Emulate Adversaries.</h2>
             <p>Anyone can run a scanner. I replicate how a real attacker — human or autonomous — actually operates, then hand your defenders the evidence.</p>
@@ -2678,7 +1921,6 @@
     
     <section id="services" class="services-section">
         <div class="section-header fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">06</span><span class="ch-rule r"></span></div>
             <div class="section-label">// SERVICES</div>
             <h2>Pick Your Edge</h2>
             <p>Every engagement is built around your threat landscape — not a template. You bring the target; I bring the clarity.</p>
@@ -2736,38 +1978,8 @@
         </div>
     </section>
     
-    <div class="neon-divider"></div>
-
-    <section id="plan" class="plan-section">
-        <div class="section-header fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">07</span><span class="ch-rule r"></span></div>
-            <div class="section-label">// THE PATH IN</div>
-            <h2>Three Steps. No Mystery.</h2>
-            <p>Engaging a red team shouldn't feel like a leap of faith. Here's exactly how we go from first message to closed gaps.</p>
-        </div>
-        <div class="plan-steps stagger">
-            <div class="plan-step">
-                <span class="step-no">01</span>
-                <h3>Scope the Objective</h3>
-                <p>A free fifteen-minute call. We define what "compromised" means for your business — the domain controller, the crown-jewel dataset, the wire-transfer path — and set the rules of engagement. You leave knowing your top exposure regardless of whether we work together.</p>
-            </div>
-            <div class="plan-step">
-                <span class="step-no">02</span>
-                <h3>Run the Adversary</h3>
-                <p>I emulate the real threat — human, AI, or both — against that objective, every technique mapped to MITRE ATT&amp;CK or ATLAS. You get progress checkpoints, not a black box, and nothing that could burn production goes off without a signal.</p>
-            </div>
-            <div class="plan-step">
-                <span class="step-no">03</span>
-                <h3>Close the Gaps</h3>
-                <p>You receive a reproducible attack narrative, the detections that should have fired, and a prioritized fix path — then I retest to prove the holes are shut. Not a PDF you file. Evidence your defenders can act on Monday.</p>
-            </div>
-        </div>
-        <p class="plan-connector">Every engagement ends the same way: <b>you know exactly where you stood, what changed, and that it holds.</b></p>
-    </section>
-
     <section id="contact" class="cta-section">
         <div class="cta-box fade-in">
-            <div class="chapter-marker"><span class="ch-rule r" style="background:linear-gradient(90deg,var(--accent),transparent)"></span><span class="ch-num">08</span><span class="ch-rule r"></span></div>
             <div class="section-label">// LET'S TALK</div>
             <h2>The attacker isn't waiting for your next audit cycle.</h2>
             <p>
@@ -2780,17 +1992,10 @@
                 <a href="mailto:hello@c2mab.io" class="btn btn-primary">Book a Scoping Call →</a>
                 <a href="https://t.me/c2mab" class="btn btn-secondary">Message on Telegram</a>
             </div>
-            <div class="thing-nod">
-                <svg class="hand-anim" viewBox="0 0 60 68" aria-hidden="true">
-                    <path class="hand" d="M15,66 C10,50 8,40 9,32 L10,20 C10,16 16,16 16,20 L17,33 L18,12 C18,8 24,8 24,12 L25,33 L26,8 C26,4 32,4 32,8 L33,34 L34,12 C34,8 40,8 40,12 L41,35 L45,25 C47,19 55,23 51,31 L44,48 C42,58 40,62 38,66 Z"/>
-                </svg>
-                <span>Thing handles the correspondence. He never forgets a reply.</span>
-            </div>
         </div>
     </section>
     
     <footer>
-        <p style="font-family:var(--font-gothic);font-style:italic;color:#c9c0ae;font-size:1.05rem;margin-bottom:0.6rem;">"Nevermore trust a system you have not made bleed."</p>
         <p>© 2026 CMAB — Red Team Operations · Classical &amp; Agentic AI Adversary Emulation. All rights reserved.</p>
     </footer>
     
@@ -2811,7 +2016,7 @@
         }
         sizeCanvas();
 
-        const COLORS = [[157,27,47],[122,59,158],[200,189,163]];
+        const COLORS = [[255,45,120],[124,58,237],[0,212,255]];
         const COUNT = Math.min(70, Math.floor(W * H / 22000));
         const particles = [];
         for (let i = 0; i < COUNT; i++) {
@@ -2954,7 +2159,7 @@
 
         /* ============ 3D TILT ON CARDS ============ */
         if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-            document.querySelectorAll('.skill-card, .service-card, .rt-col, .plan-step, .ev-card, .rt-eng').forEach(card => {
+            document.querySelectorAll('.skill-card, .service-card').forEach(card => {
                 card.addEventListener('mousemove', e => {
                     const r = card.getBoundingClientRect();
                     const rx = (e.clientX - r.left) / r.width;
@@ -2983,44 +2188,6 @@
                 });
                 btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
             });
-        }
-
-        /* ============ GLOBAL CURSOR SPOTLIGHT ============ */
-        if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-            const glow = document.createElement('div');
-            glow.id = 'cursorGlow';
-            document.body.appendChild(glow);
-            let glowOn = false;
-            window.addEventListener('mousemove', e => {
-                glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-                if (!glowOn) { glow.classList.add('on'); glowOn = true; }
-            }, { passive: true });
-            window.addEventListener('mouseout', () => { glow.classList.remove('on'); glowOn = false; });
-        }
-
-        /* ============ BUTTON CLICK RIPPLE ============ */
-        if (!reduceMotion) {
-            document.querySelectorAll('.btn').forEach(btn => {
-                btn.addEventListener('click', e => {
-                    const r = btn.getBoundingClientRect();
-                    const ripple = document.createElement('span');
-                    ripple.className = 'btn-ripple';
-                    const size = Math.max(r.width, r.height) * 1.6;
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = (e.clientX - r.left - size / 2) + 'px';
-                    ripple.style.top = (e.clientY - r.top - size / 2) + 'px';
-                    btn.appendChild(ripple);
-                    ripple.addEventListener('animationend', () => ripple.remove());
-                });
-            });
-        }
-
-        /* ============ HERO MOON PARALLAX ============ */
-        const moonEl = document.querySelector('.moon');
-        if (moonEl && !reduceMotion) {
-            window.addEventListener('scroll', () => {
-                moonEl.style.transform = `translateY(${window.scrollY * 0.12}px)`;
-            }, { passive: true });
         }
 
         /* ============ HERO HEADLINE CURSOR ============ */
@@ -3123,43 +2290,6 @@
                 }
             });
         });
-
-        /* ============ NEON STORY SPINE ============ */
-        (function () {
-            const spine = document.getElementById('storySpine');
-            const railFill = document.getElementById('railFill');
-            if (!spine) return;
-            const nodes = Array.from(spine.querySelectorAll('.spine-node'));
-            const sections = nodes.map(n => document.getElementById(n.dataset.target)).filter(Boolean);
-
-            // click-to-scroll
-            nodes.forEach(n => {
-                n.addEventListener('click', () => {
-                    const t = document.getElementById(n.dataset.target);
-                    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            });
-
-            function updateSpine() {
-                const docH = document.documentElement.scrollHeight - window.innerHeight;
-                const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
-                if (railFill) railFill.style.height = pct + '%';
-
-                // which section is currently in view (midpoint of viewport)
-                const mid = window.scrollY + window.innerHeight * 0.4;
-                let activeIdx = 0;
-                sections.forEach((sec, i) => {
-                    if (sec.offsetTop <= mid) activeIdx = i;
-                });
-                nodes.forEach((n, i) => {
-                    n.classList.toggle('active', i === activeIdx);
-                    n.classList.toggle('done', i < activeIdx);
-                });
-            }
-            window.addEventListener('scroll', updateSpine, { passive: true });
-            window.addEventListener('resize', updateSpine);
-            updateSpine();
-        })();
     </script>
 </body>
 </html>
