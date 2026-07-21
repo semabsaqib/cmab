@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="page-loader-count" id="pageLoaderCount">0%</div>
+        <div class="page-loader-bar"><div class="page-loader-bar-fill" id="pageLoaderFill"></div></div>
+    </div>
+    <div class="film-grain"></div>
     <div class="cyber-grid"></div>
     <div class="data-scan"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -51,11 +56,11 @@
     </section>
 
     <div class="page-links-strip stagger">
-        <a href="index.html" class="page-link-card">
+        <a href="index.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// HOME</span>
             <span class="plc-title">Back to the Homepage <span class="plc-arrow">→</span></span>
         </a>
-        <a href="about.html" class="page-link-card">
+        <a href="about.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// ABOUT</span>
             <span class="plc-title">Read the Operator's Brief <span class="plc-arrow">→</span></span>
         </a>
@@ -135,22 +140,22 @@
 
             <!-- SECONDARY EVIDENCE CARDS -->
             <div class="evidence-strip stagger">
-                <div class="ev-card">
+                <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Threat Landscape · Commentary</div>
                     <h4>Reading the TfL Breach</h4>
                     <p>When two operators cost Transport for London <strong>£29M and 140+ systems</strong>, the lesson wasn't sophistication — it was social engineering and a helpdesk that trusted a phone call. I track exactly this tradecraft: the human layer falls first, long before any zero-day.</p>
                 </div>
-                <div class="ev-card">
+                <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Attribution · Method</div>
                     <h4>Traces Survive OPSEC</h4>
                     <p>The BlackLock operator rebranded across three names to shake investigators. It didn't work — <strong>reused infrastructure and credentials</strong> tied the aliases together. Attribution that holds up isn't a hunch; it's the pattern an adversary can't fully erase.</p>
                 </div>
-                <div class="ev-card">
+                <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Proactive Defense · Doctrine</div>
                     <h4>Warn Before the Leak</h4>
                     <p>The measure of intelligence isn't a report filed after a breach — it's a victim notified <strong>before</strong> theirs. Getting inside the adversary's publication pipeline is what converts monitoring into prevention. That's the standard I bring to your program.</p>
                 </div>
-                <div class="ev-card">
+                <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// How This Page Works</div>
                     <h4>More Case Files, As They Publish</h4>
                     <p>Every entry here is a <strong>real, published operation</strong> — not a hypothetical. As new engagements clear disclosure and legal review, they get added here with the same standard: the narrative, the evidence, and the source.</p>
@@ -169,7 +174,7 @@
                 gap. No cost. No obligation.
             </p>
             <div class="hero-cta">
-                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener">Book a Scoping Call →</a>
                 <a href="https://www.linkedin.com/in/saqib-semab-523411242?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="btn btn-secondary" target="_blank" rel="noopener">Message on LinkedIn</a>
             </div>
         </div>

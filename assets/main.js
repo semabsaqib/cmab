@@ -1,5 +1,62 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ============ PAGE LOADER ============ */
+(function () {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    if (reduceMotion) { loader.remove(); return; }
+    const countEl = document.getElementById('pageLoaderCount');
+    const fillEl = document.getElementById('pageLoaderFill');
+    const dur = 900;
+    const start = performance.now();
+    function tick(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const pct = Math.round(eased * 100);
+        if (countEl) countEl.textContent = pct + '%';
+        if (fillEl) fillEl.style.width = pct + '%';
+        if (t < 1) {
+            requestAnimationFrame(tick);
+        } else {
+            loader.classList.add('done');
+            setTimeout(() => loader.remove(), 700);
+        }
+    }
+    requestAnimationFrame(tick);
+})();
+
+/* ============ HEADING WORD REVEAL ============ */
+(function () {
+    if (reduceMotion) return;
+    function wrapWords(node) {
+        Array.from(node.childNodes).forEach(child => {
+            if (child.nodeType === Node.TEXT_NODE) {
+                const words = child.textContent.split(/(\s+)/).filter(w => w.length);
+                const frag = document.createDocumentFragment();
+                words.forEach(w => {
+                    if (/^\s+$/.test(w)) {
+                        frag.appendChild(document.createTextNode(w));
+                    } else {
+                        const span = document.createElement('span');
+                        span.className = 'rw';
+                        span.textContent = w;
+                        frag.appendChild(span);
+                    }
+                });
+                node.replaceChild(frag, child);
+            } else if (child.nodeType === Node.ELEMENT_NODE) {
+                wrapWords(child);
+            }
+        });
+    }
+    document.querySelectorAll('.section-header h2, .flagship h2').forEach(h => {
+        wrapWords(h);
+        h.querySelectorAll('.rw').forEach((span, i) => {
+            span.style.transitionDelay = (i * 40) + 'ms';
+        });
+    });
+})();
+
 /* ============ INTERACTIVE PARTICLE FIELD ============ */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
@@ -233,6 +290,28 @@ if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
         if (!glowOn) { glow.classList.add('on'); glowOn = true; }
     }, { passive: true });
     window.addEventListener('mouseout', () => { glow.classList.remove('on'); glowOn = false; });
+}
+
+/* ============ CURSOR TAG — contextual label on [data-cursor] elements ============ */
+if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    const tag = document.createElement('div');
+    tag.className = 'cursor-tag';
+    document.body.appendChild(tag);
+    let tagShown = false;
+    window.addEventListener('mousemove', e => {
+        tag.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%) scale(${tagShown ? 1 : 0.6})`;
+    }, { passive: true });
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            tagShown = true;
+            tag.textContent = el.getAttribute('data-cursor');
+            tag.classList.add('show');
+        });
+        el.addEventListener('mouseleave', () => {
+            tagShown = false;
+            tag.classList.remove('show');
+        });
+    });
 }
 
 /* ============ BUTTON CLICK RIPPLE ============ */

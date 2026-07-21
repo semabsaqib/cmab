@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="page-loader-count" id="pageLoaderCount">0%</div>
+        <div class="page-loader-bar"><div class="page-loader-bar-fill" id="pageLoaderFill"></div></div>
+    </div>
+    <div class="film-grain"></div>
     <div class="cyber-grid"></div>
     <div class="data-scan"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -49,7 +54,7 @@
                 then hand your defenders the evidence before someone with worse intentions gets the chance.
             </p>
             <div class="hero-cta">
-                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener">Book a Scoping Call →</a>
                 <a href="portfolio.html" class="btn btn-secondary">See the Evidence</a>
             </div>
             <div class="trusted">
@@ -77,11 +82,11 @@
     </section>
 
     <div class="page-links-strip stagger">
-        <a href="about.html" class="page-link-card">
+        <a href="about.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// ABOUT</span>
             <span class="plc-title">Read the Operator's Brief <span class="plc-arrow">→</span></span>
         </a>
-        <a href="portfolio.html" class="page-link-card">
+        <a href="portfolio.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// PORTFOLIO</span>
             <span class="plc-title">See the Case Files <span class="plc-arrow">→</span></span>
         </a>
@@ -185,7 +190,7 @@
             <div><div class="stat-num" data-target="50" data-suffix="+">0</div><div style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.5rem;">Threat Actors Profiled</div></div>
             <div><div class="stat-num" data-target="100" data-suffix="%">0</div><div style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.5rem;">ATT&amp;CK-Mapped Ops</div></div>
             <div><div class="stat-num" data-target="2" data-suffix="">0</div><div style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.5rem;">Red Team Domains: Human + AI</div></div>
-            <div><div style="font-size:2.6rem;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Top&nbsp;1%</div><div style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.5rem;">Bugcrowd Researcher</div></div>
+            <div><div style="font-size:2.6rem;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Top&nbsp;1%</div><div style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.5rem;">Ransomware Expert · Pakistan</div></div>
         </div>
     </section>
     
@@ -254,7 +259,7 @@
             </div>
             <div class="service-card">
                 <h3>Bug Bounty</h3>
-                <p>Bugcrowd Top 1% experience, pointed at your program. High-signal, high-impact vulnerability research with clean, reproducible reports — the kind that get triaged fast and fixed faster.</p>
+                <p>Vulnerability research pointed at your program, backed by top 1% ransomware intelligence work. High-signal, high-impact findings with clean, reproducible reports — the kind that get triaged fast and fixed faster.</p>
             </div>
             <div class="service-card">
                 <h3>OSINT Investigation</h3>
@@ -299,7 +304,7 @@
                 know inside the first five minutes — and I'll have wasted mine, not yours.
             </p>
             <div class="hero-cta">
-                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener">Book a Scoping Call →</a>
                 <a href="https://www.linkedin.com/in/saqib-semab-523411242?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="btn btn-secondary" target="_blank" rel="noopener">Message on LinkedIn</a>
             </div>
         </div>
