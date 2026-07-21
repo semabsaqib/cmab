@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="page-loader-count" id="pageLoaderCount">0%</div>
+        <div class="page-loader-bar"><div class="page-loader-bar-fill" id="pageLoaderFill"></div></div>
+    </div>
+    <div class="film-grain"></div>
     <div class="cyber-grid"></div>
     <div class="data-scan"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -51,11 +56,11 @@
     </section>
 
     <div class="page-links-strip stagger">
-        <a href="index.html" class="page-link-card">
+        <a href="index.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// HOME</span>
             <span class="plc-title">Back to the Homepage <span class="plc-arrow">→</span></span>
         </a>
-        <a href="portfolio.html" class="page-link-card">
+        <a href="portfolio.html" class="page-link-card" data-cursor="View">
             <span class="plc-tag">// PORTFOLIO</span>
             <span class="plc-title">See the Case Files <span class="plc-arrow">→</span></span>
         </a>
@@ -83,7 +88,7 @@
                 <p><strong>If your board is asking whether your defenses would hold against a real attacker — human or AI — that is the conversation to have.</strong> The scoping call is free, it takes fifteen minutes, and you will leave it knowing more about your exposure than most quarterly reports tell you.</p>
 
                 <div class="flagship-cta">
-                    <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                    <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener">Book a Scoping Call →</a>
                     <span class="note">No cost. No obligation. <b>15 minutes.</b></span>
                 </div>
             </div>
@@ -101,7 +106,7 @@
                 know inside the first five minutes — and I'll have wasted mine, not yours.
             </p>
             <div class="hero-cta">
-                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" target="_blank" rel="noopener">Book a Scoping Call →</a>
+                <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener">Book a Scoping Call →</a>
                 <a href="https://www.linkedin.com/in/saqib-semab-523411242?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="btn btn-secondary" target="_blank" rel="noopener">Message on LinkedIn</a>
             </div>
         </div>

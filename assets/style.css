@@ -1848,6 +1848,102 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
     65% { opacity: 1; }
 }
 
+/* ============================================================
+   FILM GRAIN — animated noise overlay across the whole viewport
+   ============================================================ */
+.film-grain {
+    position: fixed;
+    inset: -60%;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grainShift 1s steps(6) infinite;
+}
+@keyframes grainShift {
+    0%{transform:translate(0,0)} 20%{transform:translate(-4%,3%)}
+    40%{transform:translate(3%,-4%)} 60%{transform:translate(-3%,-3%)}
+    80%{transform:translate(4%,4%)} 100%{transform:translate(0,0)}
+}
+
+/* ============================================================
+   PAGE LOADER — a brief counter-up transition before the page reveals
+   ============================================================ */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), visibility 0.6s;
+}
+.page-loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.page-loader-count {
+    font-family: var(--mono);
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.page-loader-bar {
+    width: min(240px, 60vw);
+    height: 2px;
+    background: var(--border);
+    overflow: hidden;
+    border-radius: 2px;
+}
+.page-loader-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+/* ============================================================
+   CUSTOM CURSOR TAG — contextual label that follows the pointer
+   ============================================================ */
+.cursor-tag {
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+    padding: 0.55rem 1.1rem;
+    background: var(--text);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 2500;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    white-space: nowrap;
+    will-change: transform;
+}
+.cursor-tag.show { opacity: 1; }
+
+/* Section headings, revealed word-by-word on scroll into view */
+.section-header h2 .rw,
+.flagship h2 .rw {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.4em);
+    filter: blur(3px);
+    transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+}
+.section-header.visible h2 .rw,
+.flagship.visible h2 .rw {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1866,5 +1962,9 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
     }
     .cyber-grid { animation: none !important; }
     .nav-links li { opacity: 1 !important; transform: none !important; animation: none !important; }
-    #cursorGlow, .btn-ripple, .data-scan { display: none !important; }
+    #cursorGlow, .btn-ripple, .data-scan, .film-grain, .cursor-tag { display: none !important; }
+    .page-loader { display: none !important; }
+    .section-header h2 .rw, .flagship h2 .rw {
+        opacity: 1 !important; transform: none !important; filter: none !important;
+    }
 }
