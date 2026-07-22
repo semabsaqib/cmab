@@ -2049,15 +2049,20 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
 .hero h1::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.14) 50%, transparent 60%);
-    background-size: 250% 100%;
-    background-position: 180% 0;
+    top: 0;
+    left: -35%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.14), transparent);
     pointer-events: none;
+    opacity: 0;
     animation: headlineSweep 2.6s ease 1.2s;
 }
 @keyframes headlineSweep {
-    to { background-position: -80% 0; }
+    0% { transform: translateX(0); opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { transform: translateX(450%); opacity: 0; }
 }
 
 /* Stat numbers pulse once when counted */
