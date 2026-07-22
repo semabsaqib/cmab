@@ -132,6 +132,18 @@
         }
         .hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); }
 
+        .hero-visual {
+            max-width: 420px; margin: 48px auto 0;
+            border: 1px solid var(--border-bright);
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+        }
+        .hero-visual img { width: 100%; display: block; filter: contrast(1.08); }
+        .hero-visual-cap {
+            padding: 10px 16px; font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary);
+            border-top: 1px solid var(--border); text-transform: uppercase; letter-spacing: 1px;
+        }
+
         /* TABLE OF CONTENTS */
         .toc-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
         .toc-grid {
@@ -365,6 +377,10 @@
             <span class="hero-meta-item"><span class="dot"></span>2021–2026 Timeline</span>
             <span class="hero-meta-item"><span class="dot"></span>8 Source Reports Compiled</span>
             <span class="hero-meta-item"><span class="dot"></span>June 2026 Edition</span>
+        </div>
+        <div class="hero-visual">
+            <img src="assets/images/mood/end-of-the-line.jpg" alt="Ransomware crisis visual — this is the end of the line" loading="lazy">
+            <div class="hero-visual-cap">// When the ransom note says "this is the end of the line."</div>
         </div>
     </section>
 
