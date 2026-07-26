@@ -72,7 +72,8 @@ function sizeCanvas() {
 sizeCanvas();
 
 const COLORS = [[255,45,120],[124,58,237],[0,212,255]];
-const COUNT = Math.min(70, Math.floor(W * H / 22000));
+const COUNT = Math.min(45, Math.floor(W * H / 30000));
+const CONNECT_SPAN = 14; // cap neighbor checks so connection cost stays ~O(n), not O(n^2)
 const particles = [];
 for (let i = 0; i < COUNT; i++) {
     const c = COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -129,9 +130,10 @@ function animate() {
         ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.opacity})`;
         ctx.fill();
     }
-    // connections
+    // connections (only check nearby indices — full O(n^2) pairing was the main scroll-jank source on desktop)
     for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
+        const jMax = Math.min(particles.length, i + CONNECT_SPAN);
+        for (let j = i + 1; j < jMax; j++) {
             const a = particles[i], b = particles[j];
             const dx = a.x - b.x, dy = a.y - b.y;
             const dist = Math.sqrt(dx*dx + dy*dy);
@@ -146,9 +148,12 @@ function animate() {
             }
         }
     }
-    requestAnimationFrame(animate);
+    if (!document.hidden) requestAnimationFrame(animate);
 }
 if (!reduceMotion) animate();
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !reduceMotion) requestAnimationFrame(animate);
+});
 
 let resizeT;
 window.addEventListener('resize', () => {

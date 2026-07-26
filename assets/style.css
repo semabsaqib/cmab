@@ -40,6 +40,7 @@ body {
     pointer-events: none;
     z-index: 0;
     animation: float 25s ease-in-out infinite;
+    will-change: transform;
 }
 
 .glow-orb:nth-child(2) {
@@ -1983,17 +1984,26 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
     inset: 0;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+/* The moving tile lives on ::before so the drift animates via transform (compositor-only,
+   no repaint) while the mask stays put on the fixed outer element. */
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: -60px; right: -60px; bottom: -60px;
     background-image:
         linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
     animation: gridDrift 20s linear infinite;
+    will-change: transform;
 }
 @keyframes gridDrift {
-    0% { background-position: 0 0, 0 0; }
-    100% { background-position: 60px 60px, 60px 60px; }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(60px, 60px, 0); }
 }
 
 /* Decrypt scramble text */
@@ -2127,7 +2137,8 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
 }
 #cursorGlow.on { opacity: 1; }
 
-/* Data-scan sweep — a faint neon bar drifting across the whole page */
+/* Data-scan sweep — a faint neon bar drifting across the whole page.
+   Animates transform instead of `left` so it's compositor-only (no repaint per frame). */
 .data-scan {
     position: fixed;
     top: 0; left: -20%;
@@ -2136,8 +2147,9 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
     pointer-events: none;
     z-index: 1;
     animation: dataScan 14s linear infinite;
+    will-change: transform;
 }
-@keyframes dataScan { to { left: 120%; } }
+@keyframes dataScan { to { transform: translateX(700%); } }
 
 /* Button click ripple */
 .btn-ripple {
@@ -2424,7 +2436,7 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
         filter: none !important;
         animation: none !important;
     }
-    .cyber-grid { animation: none !important; }
+    .cyber-grid::before { animation: none !important; }
     .nav-links li { opacity: 1 !important; transform: none !important; animation: none !important; }
     .footer-wordmark-track { animation: none !important; transform: none !important; }
     .footer-wordmark-track span:nth-child(n+2) { display: none !important; }
