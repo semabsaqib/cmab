@@ -1509,6 +1509,7 @@ section {
         radial-gradient(ellipse 40% 38% at 52% 85%, rgba(0,212,255,0.16), transparent 70%);
     filter: blur(14px);
     animation: owlBgDrift 20s ease-in-out infinite;
+    will-change: transform;
 }
 @keyframes owlBgDrift {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -1644,6 +1645,151 @@ section {
 @media (max-width: 640px) {
     .owl-stage { height: 380px; }
     .owl-readout { display: none; }
+}
+
+/* ============================================================
+   THE HUNTER — original CSS/SVG cyber-wolf, aggressive offense counterpart to The Watcher
+   ============================================================ */
+.wolf-section {
+    position: relative;
+    overflow: hidden;
+}
+.wolf-bg {
+    position: absolute;
+    inset: -15% -10%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 45% 40% at 25% 35%, rgba(255,45,120,0.30), transparent 70%),
+        radial-gradient(ellipse 50% 50% at 75% 60%, rgba(255,110,0,0.22), transparent 70%),
+        radial-gradient(ellipse 40% 38% at 50% 88%, rgba(124,58,237,0.16), transparent 70%);
+    filter: blur(14px);
+    animation: wolfBgDrift 16s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes wolfBgDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-2%, 2%) scale(1.07); }
+}
+.wolf-section > .section-header,
+.wolf-stage-wrap { position: relative; z-index: 1; }
+
+.wolf-stage-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+.wolf-stage {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+.wolf-float { animation: wolfFloat 4.2s ease-in-out infinite; }
+@keyframes wolfFloat {
+    0%, 100% { transform: translateY(-6px); }
+    50% { transform: translateY(6px); }
+}
+.wolf-tilt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    transform-style: preserve-3d;
+}
+.wolf-lunge {
+    animation: wolfLunge 3.4s ease-in-out infinite;
+    transform-origin: 150px 220px;
+}
+@keyframes wolfLunge {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    45% { transform: scale(1.01) rotate(-1.2deg); }
+    55% { transform: scale(1.025) rotate(0.8deg); }
+}
+.wolf-svg { width: min(70vw, 340px); height: auto; overflow: visible; }
+
+.wolf-circuit {
+    stroke-dasharray: 3 5;
+    animation: wolfCircuitFlow 1.6s linear infinite;
+}
+@keyframes wolfCircuitFlow { to { stroke-dashoffset: -32; } }
+
+.wolf-eye-glow { animation: wolfEyePulse 1.8s ease-in-out infinite; }
+@keyframes wolfEyePulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+.wolf-jaw { animation: wolfSnarl 3.4s ease-in-out infinite; transform-origin: 150px 210px; }
+@keyframes wolfSnarl {
+    0%, 40%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+.wolf-reticle { animation: wolfReticleSpin 5s linear infinite; transform-origin: center; }
+@keyframes wolfReticleSpin { to { transform: rotate(360deg); } }
+
+.wolf-core {
+    animation: wolfCorePulse 1.3s ease-in-out infinite;
+    transform-origin: center;
+}
+@keyframes wolfCorePulse {
+    0%, 100% { opacity: 0.65; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+}
+
+.wolf-pad-glow { animation: wolfPadPulse 2.6s ease-in-out infinite; }
+@keyframes wolfPadPulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.95; }
+}
+
+.wolf-shadow {
+    position: absolute;
+    bottom: 6%; left: 50%;
+    width: 220px; height: 34px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.5), transparent 70%);
+    animation: wolfShadowPulse 3.4s ease-in-out infinite;
+    z-index: 0;
+}
+@keyframes wolfShadowPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    50% { transform: translateX(-50%) scale(0.88); opacity: 0.6; }
+}
+
+.wolf-readout {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    z-index: 2;
+}
+.wolf-readout .rd-tag { color: var(--accent); }
+.wolf-readout .rd-status { color: var(--accent); }
+.wolf-readout .rd-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 0.4rem;
+    animation: blink 1.4s infinite;
+}
+.wolf-readout.is-tl { top: 4%; left: 2%; text-align: left; }
+.wolf-readout.is-br { bottom: 8%; right: 2%; text-align: right; align-items: flex-end; }
+
+@media (max-width: 640px) {
+    .wolf-stage { height: 380px; }
+    .wolf-readout { display: none; }
 }
 
 /* Testimonials */
@@ -2255,6 +2401,7 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
     opacity: 0.45;
     filter: blur(7px);
     animation: spinRing 9s linear infinite;
+    will-change: transform;
 }
 @keyframes spinRing { to { transform: rotate(360deg); } }
 
@@ -2680,6 +2827,7 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
    LARGE-SCREEN OPTIMIZATION — richer scale on big monitors
    ============================================================ */
 @media (min-width: 1440px) {
+    html { font-size: 17.5px; }
     section { padding: 8rem 3rem; }
     .hero { padding: 9rem 3rem 8rem; }
     .hero.page-hero { padding: 10rem 3rem 4rem; }
@@ -2710,6 +2858,7 @@ nav.nav-open .nav-toggle-box { transform: rotate(45deg) scale(1.2); border-radiu
 }
 
 @media (min-width: 1800px) {
+    html { font-size: 18.5px; }
     .hero-content { max-width: 1220px; }
     .redteam-grid, .redteam-engagements, .evidence-wrap, .skills-grid,
     .services-grid, .mood-split, .footer-top, .stats-strip { max-width: 1440px; }

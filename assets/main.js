@@ -290,6 +290,22 @@ if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
     }
 }
 
+/* ============ CYBER WOLF — POINTER TILT ============ */
+if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    const wolfStage = document.getElementById('wolfStage');
+    const wolfTilt = document.getElementById('wolfTilt');
+    if (wolfStage && wolfTilt) {
+        wolfStage.addEventListener('mousemove', e => {
+            const r = wolfStage.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width - 0.5;
+            const py = (e.clientY - r.top) / r.height - 0.5;
+            wolfTilt.style.transform =
+                `rotateX(${(-py * 14).toFixed(2)}deg) rotateY(${(px * 18).toFixed(2)}deg)`;
+        });
+        wolfStage.addEventListener('mouseleave', () => { wolfTilt.style.transform = ''; });
+    }
+}
+
 /* ============ MAGNETIC BUTTONS ============ */
 if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.btn').forEach(btn => {
