@@ -306,19 +306,6 @@ if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
     }
 }
 
-/* ============ MAGNETIC BUTTONS ============ */
-if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-            const r = btn.getBoundingClientRect();
-            const mx = e.clientX - r.left - r.width / 2;
-            const my = e.clientY - r.top - r.height / 2;
-            btn.style.transform = `translate(${mx * 0.18}px, ${my * 0.28}px) translateY(-3px)`;
-        });
-        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-    });
-}
-
 /* ============ GLOBAL CURSOR SPOTLIGHT ============ */
 if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
     const glow = document.createElement('div');
