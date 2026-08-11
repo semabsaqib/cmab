@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMAB | Red Team — Classical &amp; Agentic AI</title>
+    <title>CMAB | Capabilities — Adversary Emulation, AI Red Teaming &amp; Attack Surface Intelligence</title>
+    <meta name="description" content="Three fronts, one operator: classical adversary emulation, agentic AI red teaming, and attack surface intelligence — mapped to MITRE ATT&amp;CK, OWASP Agentic Top 10, and MITRE ATLAS.">
+    <link rel="canonical" href="https://semabsaqib.github.io/cmab/red-teaming.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CMAB | Capabilities — Adversary Emulation, AI Red Teaming &amp; Attack Surface Intelligence">
+    <meta property="og:description" content="The threat you face is no longer only human, and your perimeter is bigger than your firewall.">
+    <meta property="og:url" content="https://semabsaqib.github.io/cmab/red-teaming.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;0,900;1,900&family=Geist:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,9 +41,9 @@
             <ul class="nav-links-list">
                 <li><a href="index.html"><span class="nl-index">01</span><span class="nl-label">Home</span></a></li>
                 <li><a href="about.html"><span class="nl-index">02</span><span class="nl-label">About</span></a></li>
-                <li><a href="red-teaming.html"><span class="nl-index">03</span><span class="nl-label">Red Team</span></a></li>
+                <li><a href="red-teaming.html"><span class="nl-index">03</span><span class="nl-label">Capabilities</span></a></li>
                 <li><a href="ransomware-intelligence.html"><span class="nl-index">04</span><span class="nl-label">Ransomware Intel</span></a></li>
-                <li><a href="portfolio.html"><span class="nl-index">05</span><span class="nl-label">Portfolio</span></a></li>
+                <li><a href="portfolio.html"><span class="nl-index">05</span><span class="nl-label">Case Files</span></a></li>
                 <li><a href="services.html"><span class="nl-index">06</span><span class="nl-label">Services</span></a></li>
                 <li><a href="pi-taxonomy.html"><span class="nl-index">07</span><span class="nl-label">PI Taxonomy</span></a></li>
                 <li><a href="#contact"><span class="nl-index">08</span><span class="nl-label">Contact</span></a></li>
@@ -59,24 +65,24 @@
 
     <section class="hero page-hero">
         <div class="hero-content">
-            <div class="hero-eyebrow">RED TEAM · TWO FRONTS</div>
+            <div class="hero-eyebrow">CAPABILITIES · THREE FRONTS</div>
             <h1>
-                <span class="line1">Two Adversaries.</span>
+                <span class="line1">Three Fronts.</span>
                 <span class="line2">One Operator.</span>
             </h1>
             <p class="hero-subtitle">
-                The threat you face is no longer only human. I run the full red team scope across
-                both fronts — classical intrusion and autonomous AI — so nothing in your attack
-                surface goes untested.
+                The threat you face is no longer only human, and your perimeter is bigger than your
+                firewall. I run the full scope across all three fronts — adversary emulation, AI
+                agent red teaming, and attack surface intelligence — so nothing goes untested.
             </p>
         </div>
     </section>
 
     <section class="redteam-section">
-        <div class="redteam-grid stagger">
+        <div class="redteam-grid cols-3 stagger">
             <div id="classical" class="rt-col">
                 <div class="rt-tag">// FRONT 01</div>
-                <h3>Classical Red Teaming</h3>
+                <h3>Adversary Emulation</h3>
                 <p>Intelligence-driven, stealth-focused emulation of a real adversary against your people, process, and technology — objective-first, and mapped end to end to MITRE ATT&amp;CK.</p>
 
                 <div class="rt-phase">Full Kill-Chain Coverage</div>
@@ -133,6 +139,35 @@
                     <span class="fw">OWASP LLM Top 10</span>
                 </div>
             </div>
+
+            <div id="attack-surface" class="rt-col" style="--a:var(--success);">
+                <div class="rt-tag" style="color:var(--success);">// FRONT 03</div>
+                <h3>Attack Surface Intelligence</h3>
+                <p>What attackers can discover before the attack begins — mapped, prioritized, and handed to you before it's handed to them.</p>
+
+                <div class="rt-phase">What Gets Mapped</div>
+                <ul class="rt-list">
+                    <li><strong>External Asset Discovery</strong> — everything internet-facing that belongs to you, including what you forgot about</li>
+                    <li><strong>DNS Intelligence</strong> — subdomains, misconfigured records, and forgotten infrastructure</li>
+                    <li><strong>Exposed Services</strong> — ports, panels, and interfaces that should never have been reachable</li>
+                    <li><strong>Technology Fingerprinting</strong> — what's running, what's outdated, what's a known target</li>
+                    <li><strong>Cloud Exposure</strong> — misconfigured buckets, storage, and identity surfaces</li>
+                    <li><strong>Credential &amp; Secret Exposure</strong> — leaked data already tied to your domains</li>
+                </ul>
+
+                <div class="rt-phase">Where It Applies</div>
+                <ul class="rt-list">
+                    <li>The lowest-friction entry point — a first look before a full engagement</li>
+                    <li>Due diligence ahead of an acquisition or vendor onboarding</li>
+                    <li>Ongoing exposure checks between full assessments</li>
+                </ul>
+
+                <div class="rt-frameworks" style="border-top-color:var(--border);">
+                    <span class="fw">Threat Intelligence</span>
+                    <span class="fw">Attack-Path Prioritization</span>
+                    <span class="fw">Vulnerability Intelligence</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -159,6 +194,10 @@
                 <div class="t">AI Deployment Review</div>
                 <div class="d">Adversarial assessment of an agent before it ships — a documented safety boundary, not a hope.</div>
             </div>
+            <div class="rt-eng">
+                <div class="t">Exposure Snapshot</div>
+                <div class="d">A fast, low-friction map of your external attack surface — the entry point before a full engagement.</div>
+            </div>
         </div>
     </section>
 
@@ -167,8 +206,9 @@
             <div class="section-label">// LET'S TALK</div>
             <h2>Not sure which front applies to you?</h2>
             <p>
-                Most organizations need both. One fifteen-minute scoping call tells you where you're
-                actually exposed — human attack surface, AI attack surface, or both. No cost. No obligation.
+                Most organizations need more than one. One fifteen-minute scoping call tells you where
+                you're actually exposed — human attack surface, AI attack surface, or the exposure the
+                internet already sees. No cost. No obligation.
             </p>
             <div class="hero-cta">
                 <a href="https://wa.me/923025352333?text=Hi%2C%20I%27d%20like%20to%20book%20a%20scoping%20call." class="btn btn-primary" data-cursor="Call" target="_blank" rel="noopener"><span class="btn-label">Book a Scoping Call</span><span class="btn-icon">→</span></a>
@@ -181,14 +221,14 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <span class="footer-eyebrow">// CMAB</span>
-                <p class="footer-tagline">Red team operations for people who'd rather know now than find out later — classical intrusion and agentic AI, one operator.</p>
+                <p class="footer-tagline">Adversary emulation, AI agent red teaming, and attack surface intelligence — for people who'd rather know now than find out later.</p>
             </div>
             <div class="footer-col">
                 <span class="footer-col-label">Navigation</span>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="red-teaming.html">Red Team</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="red-teaming.html">Capabilities</a>
+                <a href="portfolio.html">Case Files</a>
                 <a href="ransomware-intelligence.html">Ransomware Intel</a>
                 <a href="pi-taxonomy.html">PI Taxonomy</a>
                 <a href="services.html">Services</a>
@@ -208,7 +248,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 CMAB — Red Team Operations · Classical &amp; Agentic AI Adversary Emulation. All rights reserved.</p>
+            <p>© 2026 CMAB — Adversary Emulation · AI Agent Red Teaming · Attack Surface Intelligence. All rights reserved.</p>
         </div>
     </footer>
 

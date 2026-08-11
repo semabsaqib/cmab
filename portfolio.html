@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMAB | Portfolio — Field Evidence</title>
+    <title>CMAB | Case Files — Field Evidence</title>
+    <meta name="description" content="Documented adversary emulation, threat intelligence, and AI security case files — objective, attack path, evidence, root cause, and remediation, mapped to MITRE ATT&amp;CK.">
+    <link rel="canonical" href="https://semabsaqib.github.io/cmab/portfolio.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CMAB | Case Files — Field Evidence">
+    <meta property="og:description" content="Claims are cheap. Here's the work — live operations, on the record, with the receipts.">
+    <meta property="og:url" content="https://semabsaqib.github.io/cmab/portfolio.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;0,900;1,900&family=Geist:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,9 +41,9 @@
             <ul class="nav-links-list">
                 <li><a href="index.html"><span class="nl-index">01</span><span class="nl-label">Home</span></a></li>
                 <li><a href="about.html"><span class="nl-index">02</span><span class="nl-label">About</span></a></li>
-                <li><a href="red-teaming.html"><span class="nl-index">03</span><span class="nl-label">Red Team</span></a></li>
+                <li><a href="red-teaming.html"><span class="nl-index">03</span><span class="nl-label">Capabilities</span></a></li>
                 <li><a href="ransomware-intelligence.html"><span class="nl-index">04</span><span class="nl-label">Ransomware Intel</span></a></li>
-                <li><a href="portfolio.html"><span class="nl-index">05</span><span class="nl-label">Portfolio</span></a></li>
+                <li><a href="portfolio.html"><span class="nl-index">05</span><span class="nl-label">Case Files</span></a></li>
                 <li><a href="services.html"><span class="nl-index">06</span><span class="nl-label">Services</span></a></li>
                 <li><a href="pi-taxonomy.html"><span class="nl-index">07</span><span class="nl-label">PI Taxonomy</span></a></li>
                 <li><a href="#contact"><span class="nl-index">08</span><span class="nl-label">Contact</span></a></li>
@@ -106,6 +112,24 @@
 
                     <p class="case-narr">The operation had harvested <strong>110 million credentials</strong> — NTLM hashes, Kerberos tickets, cleartext passwords — from devices that were never meant to be a listening post. The disclosure triggered a <strong>CISA emergency alert</strong> and confirmed a breach at a NATO-aligned defense contractor. I mapped the full attack chain, from initial access through lateral movement to data exfiltration, so defenders had something they could actually act on.</p>
 
+                    <div class="case-tax">
+                        <div class="case-tax-item"><span class="k">Objective</span><span class="v">Document a large-scale adversary campaign against network perimeter infrastructure before more victims were silently compromised.</span></div>
+                        <div class="case-tax-item"><span class="k">Environment</span><span class="v">Real-world, internet-facing firewall/VPN infrastructure — independent research, SOCRadar Labs.</span></div>
+                        <div class="case-tax-item"><span class="k">Adversary Access Vector</span><span class="v">Custom Go-based interception tool passively harvesting authentication traffic across 24 protocols.</span></div>
+                        <div class="case-tax-item"><span class="k">Discovery Method</span><span class="v">Behavioral and infrastructure analysis surfaced the tool's fingerprint across affected devices.</span></div>
+                        <div class="case-tax-item"><span class="k">Attack Path</span><span class="v">Passive credential interception → NTLM/Kerberos/cleartext harvesting → silent exfiltration, no alerting triggered.</span></div>
+                        <div class="case-tax-item"><span class="k">Impact</span><span class="v">430,000+ firewalls across 194 countries; confirmed breach at a NATO-aligned defense contractor.</span></div>
+                        <div class="case-tax-item"><span class="k">Root Cause</span><span class="v">Perimeter devices trusted as infrastructure rather than treated as monitored attack surface — no traffic inspection at the interception point.</span></div>
+                        <div class="case-tax-item"><span class="k">Remediation</span><span class="v">CVE assigned, CISA emergency alert issued, affected organizations notified via coordinated disclosure.</span></div>
+                        <div class="case-tax-item"><span class="k">Lessons</span><span class="v">A firewall is an attack surface, not just a control — perimeter infrastructure needs the same scrutiny as anything else exposed to the internet.</span></div>
+                    </div>
+                    <div class="attck-tags">
+                        <span class="attck-tag">T1040 Network Sniffing</span>
+                        <span class="attck-tag">T1552 Unsecured Credentials</span>
+                        <span class="attck-tag">T1078 Valid Accounts</span>
+                        <span class="attck-tag">T1590 Gather Victim Network Info</span>
+                    </div>
+
                     <div class="case-pull">"A firewall is supposed to be the thing that watches the door. This one had been quietly recording everyone who walked through it — for who knows how long."</div>
 
                     <div class="case-metrics stagger">
@@ -149,6 +173,24 @@
                     <p class="case-narr">Most threat intelligence counts victims after the damage is done. We did the opposite. As part of the <strong>Resecurity HUNTER</strong> effort against BlackLock — a ransomware-as-a-service operation on track to become the most prolific of 2025, having grown its leak volume by <strong>1,425% in a single quarter</strong> — the team identified a Local File Include flaw in the group's TOR data-leak site and turned it inward.</p>
 
                     <p class="case-narr">That foothold exposed their server configuration, credentials, and full command history from inside their own infrastructure. Their fatal mistake was mundane: <strong>reused passwords, copy-pasted straight into the shell, valid across multiple accounts.</strong> Operators who could ransom a government couldn't manage their own OPSEC.</p>
+
+                    <div class="case-tax">
+                        <div class="case-tax-item"><span class="k">Objective</span><span class="v">Identify and disrupt BlackLock's ransomware-as-a-service operation ahead of its next scheduled leak.</span></div>
+                        <div class="case-tax-item"><span class="k">Environment</span><span class="v">BlackLock's own TOR-hosted data-leak site infrastructure — authorized offensive research under Resecurity HUNTER.</span></div>
+                        <div class="case-tax-item"><span class="k">Initial Access</span><span class="v">Local File Include (LFI) vulnerability identified in the group's TOR data-leak site.</span></div>
+                        <div class="case-tax-item"><span class="k">Discovery</span><span class="v">Flaw surfaced during routine leak-site monitoring over the winter holiday window.</span></div>
+                        <div class="case-tax-item"><span class="k">Attack Path</span><span class="v">LFI foothold → server config &amp; credential exposure → command history capture → victim publication schedule intercepted.</span></div>
+                        <div class="case-tax-item"><span class="k">Impact</span><span class="v">7 TB of stolen data recovered; victims warned days ahead of scheduled leaks; BlackLock and Mamona taken offline.</span></div>
+                        <div class="case-tax-item"><span class="k">Root Cause</span><span class="v">Reused, hardcoded passwords across the operator's own accounts — the same credential hygiene failure they exploited in victims.</span></div>
+                        <div class="case-tax-item"><span class="k">Disruption</span><span class="v">OPSEC failures exposed, affiliate trust collapsed, operator infrastructure taken offline and abandoned.</span></div>
+                        <div class="case-tax-item"><span class="k">Lessons</span><span class="v">Attribution that holds up isn't a hunch — it's the pattern an adversary can't fully erase.</span></div>
+                    </div>
+                    <div class="attck-tags">
+                        <span class="attck-tag">T1190 Exploit Public-Facing Application</span>
+                        <span class="attck-tag">T1552 Unsecured Credentials</span>
+                        <span class="attck-tag">T1078 Valid Accounts</span>
+                        <span class="attck-tag">T1567 Exfiltration Over Web Service</span>
+                    </div>
 
                     <div class="case-pull">"Defense that only counts victims is already losing. The work that breaks these groups is offensive — get inside the adversary's process and turn it against them before the payload lands."</div>
 
@@ -215,6 +257,12 @@
                     <p>Every entry here is a <strong>real, published operation</strong> — not a hypothetical. As new engagements clear disclosure and legal review, they get added here with the same standard: the narrative, the evidence, and the source.</p>
                 </div>
                 <div class="ev-card" data-cursor="Read">
+                    <span class="case-lab-badge">// Lab / Research — Not A Client Engagement</span>
+                    <div class="ev-tag">// AI Security Research · Classification Framework</div>
+                    <h4>Building a Prompt Injection Taxonomy</h4>
+                    <p>A structured classification system for prompt injection techniques, built as independent AI-security research — the same framework I use to scope and score findings in AI agent red team engagements. <a href="pi-taxonomy.html">Explore the taxonomy →</a></p>
+                </div>
+                <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// UAE Financial Sector · The Gentlemen Ransomware</div>
                     <h4>The Dhow International Holding Breach</h4>
                     <p>Investigated a sophisticated RaaS group's breach of a UAE financial institution — a <strong>Go-based locker</strong> targeting Windows, Linux, NAS, and ESXi, run through SystemBC proxy infrastructure for covert C2. Every TTP mapped to MITRE ATT&amp;CK; victim infrastructure verified through WHOIS intelligence.</p>
@@ -253,14 +301,14 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <span class="footer-eyebrow">// CMAB</span>
-                <p class="footer-tagline">Red team operations for people who'd rather know now than find out later — classical intrusion and agentic AI, one operator.</p>
+                <p class="footer-tagline">Adversary emulation, AI agent red teaming, and attack surface intelligence — for people who'd rather know now than find out later.</p>
             </div>
             <div class="footer-col">
                 <span class="footer-col-label">Navigation</span>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="red-teaming.html">Red Team</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="red-teaming.html">Capabilities</a>
+                <a href="portfolio.html">Case Files</a>
                 <a href="ransomware-intelligence.html">Ransomware Intel</a>
                 <a href="pi-taxonomy.html">PI Taxonomy</a>
                 <a href="services.html">Services</a>
@@ -280,7 +328,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 CMAB — Red Team Operations · Classical &amp; Agentic AI Adversary Emulation. All rights reserved.</p>
+            <p>© 2026 CMAB — Adversary Emulation · AI Agent Red Teaming · Attack Surface Intelligence. All rights reserved.</p>
         </div>
     </footer>
 
