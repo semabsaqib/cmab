@@ -28,4 +28,8 @@
     <loc>https://semabsaqib.github.io/cmab/pi-taxonomy.html</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://semabsaqib.github.io/cmab/ad-playbook.html</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
