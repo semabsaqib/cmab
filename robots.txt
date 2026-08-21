@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://semabsaqib.github.io/cmab/sitemap.xml

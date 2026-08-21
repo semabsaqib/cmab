@@ -634,6 +634,60 @@ section {
     flex-wrap: wrap;
     gap: 0.5rem;
 }
+/* Standalone capability strip — reuses .fw pill styling, no card parent needed */
+.capability-strip {
+    border-top: none;
+    padding-top: 0;
+    justify-content: center;
+    max-width: 920px;
+    margin: 0 auto;
+}
+.capability-strip .fw {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+}
+
+/* Four-stage methodology (Find / Prove / Explain / Fix) */
+.method-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+.method-step {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 1.6rem;
+}
+.method-step-num {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    color: var(--a, var(--accent));
+    margin-bottom: 1rem;
+}
+.method-step h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+}
+.method-step p {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+@media (max-width: 900px) {
+    .method-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+    .method-grid { grid-template-columns: 1fr; }
+}
 .rt-frameworks .fw {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -950,6 +1004,9 @@ section {
     color: var(--accent);
     margin-bottom: 1rem;
 }
+/* The heading right after it is also inline-block (for the underline accent sizing),
+   so force a break here — otherwise a short h2 sits on the same line as the label. */
+.section-header .section-label { display: block; }
 
 .section-header {
     text-align: center;
@@ -1466,6 +1523,8 @@ section {
 }
 .device-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); animation: blink 1.4s infinite; }
 .device-pill.warn .dot { background: var(--accent); }
+.device-lab-stack { display: flex; flex-direction: column; gap: 0.55rem; align-items: stretch; width: 100%; }
+.device-lab-stack .device-pill { justify-content: flex-start; }
 .device-footer {
     width: 100%;
     display: flex;
@@ -1974,6 +2033,71 @@ section {
     color: var(--text-muted);
     margin-bottom: 2rem;
     font-size: 1.1rem;
+}
+
+/* Security intake form */
+.intake-form {
+    max-width: 620px;
+    margin: 3rem auto 0;
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.2rem;
+}
+.intake-form-head {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: var(--accent3);
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+}
+.intake-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.intake-field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.intake-field.full { grid-column: 1 / -1; }
+.intake-field label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.intake-field input,
+.intake-field select,
+.intake-field textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 0.85rem;
+    color: var(--text);
+    font-family: var(--display);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.intake-field input:focus,
+.intake-field select:focus,
+.intake-field textarea:focus {
+    border-color: var(--accent3);
+}
+.intake-field textarea { resize: vertical; min-height: 90px; }
+.intake-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 0.8rem;
+    margin: 0.4rem 0 1.4rem;
+    line-height: 1.5;
+}
+.intake-submit-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.intake-status { font-family: var(--mono); font-size: 0.78rem; color: var(--success); }
+@media (max-width: 640px) {
+    .intake-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
