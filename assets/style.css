@@ -1890,11 +1890,8 @@ section {
 .strike-section {
     position: relative;
     overflow: hidden;
-    min-height: 640px;
-    display: flex;
-    align-items: flex-end;
-    padding: 0;
 }
+.strike-section .section-header { position: relative; z-index: 1; }
 .strike-bgimg {
     position: absolute;
     inset: 0;
