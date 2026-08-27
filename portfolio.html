@@ -93,59 +93,6 @@
 
     <section id="evidence" class="evidence-section">
         <div class="evidence-wrap">
-            <!-- FLAGSHIP CASE: Global Credential-Harvesting Campaign -->
-            <div class="case-file reveal-scale">
-                <div class="case-bar">
-                    <span class="dot r"></span>
-                    <span class="dot y"></span>
-                    <span class="dot g"></span>
-                    <span class="title">cmab@secops: ~/operations/credential-harvest.case</span>
-                    <span class="status">● Documented</span>
-                </div>
-                <div class="case-body">
-                    <div class="case-head">
-                        <div>
-                            <div class="case-classification">// Global Credential-Harvesting Campaign · SOCRadar Labs Research</div>
-                            <h3>The Largest Credential-Harvesting Campaign <span class="hl">Ever Documented Against Firewalls.</span></h3>
-                        </div>
-                    </div>
-
-                    <p class="case-narr">As part of SOCRadar Labs' investigation, I researched and reported on one of the largest credential-harvesting operations ever found targeting network perimeter infrastructure. A custom adversary tool — <strong>written in Russian, compiled in Go</strong> — had silently compromised over <strong>430,000 firewalls across 194 countries</strong>, passively intercepting authentication traffic across 24 different protocols without tripping a single alert.</p>
-
-                    <p class="case-narr">The operation had harvested <strong>110 million credentials</strong> — NTLM hashes, Kerberos tickets, cleartext passwords — from devices that were never meant to be a listening post. The disclosure triggered a <strong>CISA emergency alert</strong> and confirmed a breach at a NATO-aligned defense contractor. In the writeup, I mapped the full attack chain, from initial access through lateral movement to data exfiltration, so defenders had something they could actually act on.</p>
-
-                    <div class="case-pull">"A firewall is supposed to be the thing that watches the door. This one had been quietly recording everyone who walked through it — for who knows how long."</div>
-
-                    <div class="case-metrics stagger">
-                        <div class="case-metric"><div class="n">430K+</div><div class="l">Firewalls silently compromised</div></div>
-                        <div class="case-metric cyan"><div class="n">110M+</div><div class="l">Credentials harvested</div></div>
-                        <div class="case-metric"><div class="n">194</div><div class="l">Countries affected</div></div>
-                        <div class="case-metric cyan"><div class="n">659</div><div class="l">Harvest cycles observed</div></div>
-                    </div>
-
-                    <div class="case-chain-label">// Root Cause &amp; Remediation</div>
-                    <ul class="case-chain stagger">
-                        <li>
-                            <div class="step-t">Root Cause</div>
-                            <div class="step-d">Perimeter devices trusted implicitly once deployed — no egress monitoring on the management plane, no alerting on anomalous outbound authentication traffic.</div>
-                        </li>
-                        <li>
-                            <div class="step-t">Immediate Fix</div>
-                            <div class="step-d">Patch and rotate credentials on affected firewall models; force re-authentication across every account that touched an exposed device.</div>
-                        </li>
-                        <li>
-                            <div class="step-t">Lesson For Defenders</div>
-                            <div class="step-d">Perimeter infrastructure is an attack surface, not just a control — it needs the same egress monitoring you'd put on a server.</div>
-                        </li>
-                    </ul>
-
-                    <div class="case-foot">
-                        <span class="case-role-badge">Role: Research &amp; Reporting · CTI</span>
-                        <span class="src">CVE-2026-24858 · Attributed to a Russian-speaking adversary</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- FLAGSHIP CASE: BlackLock -->
             <div class="case-file reveal-scale">
                 <div class="case-bar">
@@ -170,13 +117,11 @@
                         </div>
                     </div>
 
-                    <p class="case-narr">Most threat intelligence counts victims after the damage is done. We did the opposite. As part of the <strong>Resecurity HUNTER</strong> effort against BlackLock — a ransomware-as-a-service operation on track to become the most prolific of 2025, having grown its leak volume by <strong>1,425% in a single quarter</strong> — the team identified a Local File Include flaw in the group's TOR data-leak site and turned it inward.</p>
+                    <p class="case-narr">As part of the <strong>Resecurity HUNTER</strong> effort against BlackLock — a ransomware-as-a-service operation on track to become the most prolific of 2025 — the team found a Local File Include flaw in the group's TOR leak site and turned it inward, exposing server config, credentials, and command history. Their fatal mistake: <strong>reused passwords, valid across multiple accounts.</strong></p>
 
-                    <p class="case-narr">That foothold exposed their server configuration, credentials, and full command history from inside their own infrastructure. Their fatal mistake was mundane: <strong>reused passwords, copy-pasted straight into the shell, valid across multiple accounts.</strong> Operators who could ransom a government couldn't manage their own OPSEC.</p>
+                    <div class="case-pull">"Defense that only counts victims is already losing. Get inside the adversary's process and turn it against them before the payload lands."</div>
 
-                    <div class="case-pull">"Defense that only counts victims is already losing. The work that breaks these groups is offensive — get inside the adversary's process and turn it against them before the payload lands."</div>
-
-                    <p class="case-narr">Access changed the mission from watching to intercepting. The team pulled over <strong>7 TB of stolen data</strong> and warned victims before their information ever went public — reaching the <strong>Canadian Centre for Cyber Security 13 days</strong> ahead of one planned leak, and <strong>CERT-FR/ANSSI two days</strong> ahead of a European legal provider's client data going live. By March, BlackLock and Mamona were offline and the operator had vanished.</p>
+                    <p class="case-narr">The team pulled <strong>7 TB of stolen data</strong> and warned victims before it went public — 13 days ahead of one planned leak. By March, BlackLock and Mamona were offline and the operator had vanished.</p>
 
                     <div class="case-metrics stagger">
                         <div class="case-metric"><div class="n">7&nbsp;TB</div><div class="l">Stolen data recovered from actor infrastructure</div></div>
@@ -219,23 +164,23 @@
             <!-- SECONDARY EVIDENCE CARDS -->
             <div class="section-header fade-in" style="margin:4rem 0 2rem;">
                 <div class="section-label">// FIELD NOTES &amp; SECONDARY FINDINGS</div>
-                <p>Shorter investigations, published bug bounty work, and commentary on live incidents — same sourcing standard, smaller scope.</p>
+                <p>Shorter investigations and commentary on live incidents — same sourcing standard, smaller scope. More findings landing here soon.</p>
             </div>
             <div class="evidence-strip stagger">
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Threat Landscape · Commentary</div>
                     <h4>Reading the TfL Breach</h4>
-                    <p>When two operators cost Transport for London <strong>£29M and 140+ systems</strong>, the lesson wasn't sophistication — it was social engineering and a helpdesk that trusted a phone call. I track exactly this tradecraft: the human layer falls first, long before any zero-day.</p>
+                    <p>Two operators cost Transport for London <strong>£29M and 140+ systems</strong> — via social engineering, not a zero-day. The human layer falls first.</p>
                 </div>
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Attribution · Method</div>
                     <h4>Traces Survive OPSEC</h4>
-                    <p>The BlackLock operator rebranded across three names to shake investigators. It didn't work — <strong>reused infrastructure and credentials</strong> tied the aliases together. Attribution that holds up isn't a hunch; it's the pattern an adversary can't fully erase.</p>
+                    <p>BlackLock rebranded across three names to shake investigators. <strong>Reused infrastructure and credentials</strong> tied them back together anyway.</p>
                 </div>
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// Proactive Defense · Doctrine</div>
                     <h4>Warn Before the Leak</h4>
-                    <p>The measure of intelligence isn't a report filed after a breach — it's a victim notified <strong>before</strong> theirs. Getting inside the adversary's publication pipeline is what converts monitoring into prevention. That's the standard I bring to your program.</p>
+                    <p>Intelligence that only reports after a breach is too late. Getting inside the adversary's publication pipeline turns monitoring into prevention.</p>
                 </div>
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// How This Page Works</div>
@@ -245,17 +190,12 @@
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// UAE Financial Sector · The Gentlemen Ransomware</div>
                     <h4>The Dhow International Holding Breach</h4>
-                    <p>Investigated a sophisticated RaaS group's breach of a UAE financial institution — a <strong>Go-based locker</strong> targeting Windows, Linux, NAS, and ESXi, run through SystemBC proxy infrastructure for covert C2. Every TTP mapped to MITRE ATT&amp;CK; victim infrastructure verified through WHOIS intelligence.</p>
+                    <p>A RaaS group's breach of a UAE financial institution — a <strong>Go-based locker</strong> hitting Windows, Linux, NAS, and ESXi via SystemBC proxy C2. TTPs mapped to MITRE ATT&amp;CK.</p>
                 </div>
                 <div class="ev-card" data-cursor="Read">
                     <div class="ev-tag">// South Africa · Political Data Leak</div>
                     <h4>The Black X / ANC Leak Investigation</h4>
-                    <p>Full investigation of the Black X hacker group's claimed leak of ANC data — <strong>2.3 million records</strong> spanning phone IDs, emails, and physical addresses. Findings cross-verified through MyBroadband, Daily Maverick, BizNews, and DeXpose.io.</p>
-                </div>
-                <div class="ev-card" data-cursor="Read">
-                    <div class="ev-tag">// Bug Bounty · GitLab.com via HackerOne · Report C2MAB-06</div>
-                    <h4>An Unpatched Sibling of a CVE GitLab Had Already Fixed</h4>
-                    <p>GitLab shipped a fix for an ambiguous branch/tag reference bug (CVE-2025-12506) in three places — web UI, Archive API, GraphQL. I found two REST endpoints, Repository Files and Compare, where that same fix never landed, silently resolving to an attacker-controlled tag instead. <strong>Live-verified against production</strong> with real branch/tag collisions, not just source review — currently under coordinated disclosure.</p>
+                    <p>Investigated the Black X group's claimed leak of ANC data — <strong>2.3 million records</strong>. Cross-verified through MyBroadband, Daily Maverick, BizNews, and DeXpose.io.</p>
                 </div>
             </div>
         </div>
